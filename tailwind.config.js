@@ -23,7 +23,7 @@ module.exports = {
         ibm: ['IBM Plex Sans Arabic', 'sans-serif']
       },
       colors: {
-        primary: "#171F49",
+        primary: "#fde68a",
       },
 
       animation : {

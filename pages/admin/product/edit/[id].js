@@ -1,5 +1,5 @@
 import React from 'react';
-import UpdateProduct from '@/components/admin/article/updateProduct';
+import UpdateProduct from '@/components/admin/product/updateProduct';
 import { getDocuments,getDocument } from '@/functions/firebase/getData';
 const EditSubPage = ({product,cats,subcats}) => {
     return (

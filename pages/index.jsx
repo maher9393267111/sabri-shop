@@ -6,11 +6,11 @@ import { getDocuments, getDocumentsOrder } from "@/functions/firebase/getData";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Layout from "@/components/layout";
-import BannerSlider from "@/components/Main/BannerSlider";
-import Service from "@/components/Main/Services";
-import SectionOne from "@/components/Main/SectionOne";
-import Travels from "@/components/Main/Travels";
-import AbourSection from "@/components/Main/AboutUsSection";
+// import BannerSlider from "@/components/Main/BannerSlider";
+// import Service from "@/components/Main/Services";
+// import SectionOne from "@/components/Main/SectionOne";
+// import Travels from "@/components/Main/Travels";
+// import AbourSection from "@/components/Main/AboutUsSection";
 
 
 export default function Index({}) {
@@ -26,7 +26,7 @@ export default function Index({}) {
     <Layout dir={router.locale === "ar" ? "rtl" : "ltr"}>
       <div className="scroll-smooth  ">
 
-<BannerSlider/>
+{/* <BannerSlider/>
 
 <Service/>
 
@@ -34,7 +34,7 @@ export default function Index({}) {
 
 <Travels/>
 
-<AbourSection/>
+<AbourSection/> */}
 
   
       </div>
