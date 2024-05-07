@@ -122,4 +122,4 @@ const [currentProducts , setCurrentProducts] = useState(products)
   );
 };
 
-export default ProductTable;
+export default ArticleTable;
