@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { orderBy, where } from "firebase/firestore";
@@ -6,12 +6,13 @@ import { getDocuments, getDocumentsOrder } from "@/functions/firebase/getData";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
 import Layout from "@/components/layout";
-// import BannerSlider from "@/components/Main/BannerSlider";
+import BannerSlider from "@/components/Main/BannerSlider";
+import CategoryCard from "@/components/Main/CategoryCard";
+import ProductSlider from '@/components/Main/productsSlider'
 // import Service from "@/components/Main/Services";
 // import SectionOne from "@/components/Main/SectionOne";
 // import Travels from "@/components/Main/Travels";
 // import AbourSection from "@/components/Main/AboutUsSection";
-
 
 export default function Index({}) {
   const { t } = useTranslation("common");
@@ -22,11 +23,63 @@ export default function Index({}) {
   //  const aboutus = t("aboutus", { returnObjects: true });
   //  console.log("links", aboutus);
 
+  const [cats, setCats] = useState([]);
+  const [products, setProducts] = useState([]);
+  // const [loacding, setLoading] = useState(true);
+  //subcategory"
+  useEffect(() => {
+    const getCats = async () => {
+      //  setPageLoading(true)
+
+      const data = await getDocumentsOrder(
+        "cats",
+        orderBy("timeStamp", "asc"),
+        null
+      );
+
+      console.log(data, "fetch cats ====>>>>");
+      setCats(data);
+      // setPageLoading(false)
+    };
+
+
+
+    const getProducts= async () => {
+      //  setPageLoading(true)
+
+      const data = await getDocumentsOrder(
+        "products",
+        orderBy("timeStamp", "asc"),
+        null
+      );
+
+      console.log(data, "fetch PRODUCCCCCCCCCCCC====>>>>");
+      setProducts(data);
+      // setPageLoading(false)
+    };
+
+
+
+
+
+    getCats();
+    getProducts();
+  }, []);
+
   return (
     <Layout dir={router.locale === "ar" ? "rtl" : "ltr"}>
       <div className="scroll-smooth  ">
+        <BannerSlider />
 
-{/* <BannerSlider/>
+        <CategoryCard data={cats} />
+
+<ProductSlider data={products}/>
+
+
+<ProductSlider data={products}/>
+
+
+        {/* <BannerSlider/>
 
 <Service/>
 
@@ -35,10 +88,7 @@ export default function Index({}) {
 <Travels/>
 
 <AbourSection/> */}
-
-  
       </div>
-      
     </Layout>
   );
 }

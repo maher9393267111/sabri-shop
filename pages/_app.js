@@ -55,4 +55,21 @@ const MyApp=({ Component, pageProps }) =>{
 )
 }
 
+
+export const getServerSideProps = async ({ Component, ctx, locale }) => {
+    let pageProps = {};
+    if (Component.getInitialProps) {
+      pageProps = await Component.getInitialProps(ctx);
+    }
+  
+    return {
+      props: {
+        pageProps,
+        ...(await serverSideTranslations(locale, ["common", "main"])),
+      },
+    };
+  };
+
+
+
 export default appWithTranslation(MyApp, nextI18NextConfig);

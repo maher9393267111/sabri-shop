@@ -10,7 +10,7 @@ console.log("nft" ,nft)
     return (
         <Layout>
       
-         
+         {nft?.title}
         
     </Layout>
     )

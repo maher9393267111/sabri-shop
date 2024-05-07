@@ -314,3 +314,32 @@ body {
 .rsme-embed {
   height: 90% !important;
 }
+
+/* ------------------- */
+
+
+
+
+/* Swiper Pagination Style */
+.swiper-pagination-bullet {
+    height: 6px!important;
+    width: 6px!important;
+}
+.swiper-pagination-bullet-active {
+    background-color: #000 !important;
+    border-radius: 5px!important;
+    height: 6px!important;
+    width: 20px!important;
+    transition: width linear .3s ;
+}
+/**/
+
+
+/* Swiper Navigation Style */
+/* .swiper-button-next,
+.swiper-button-prev {
+    padding: 0 25%!important;
+    background-color: transparent!important;
+    right:10px;
+    width: 10px!important;
+} */
