@@ -1,6 +1,6 @@
 import React from "react";
 import Image from "next/image";
-import CustomButton from "./CustomButton";
+import CustomButton from "./customButton";
 import Link from "next/link";
 
 const CategorySection = (props) => {
@@ -29,7 +29,7 @@ console.log(props?.data ,"SS@@@@@@@@@@@@")
             <Link href={`/products?${!props?.sub ? 'category'  : 'subcategory'}=${category?.title}`}>
               <CustomButton
                 title="Shop Now ->"
-                containerStyles="px-6 py-2 items-center justify-center border bg-primary border-primary text-primary text-sm font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                containerStyles="px-6 py-2 items-center justify-center border bg-primary border-primary text-black text-md font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               />
             </Link>
           </div>

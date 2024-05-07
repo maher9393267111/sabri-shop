@@ -9,9 +9,9 @@ import "swiper/css/navigation";
 
 // import required modules
 import { Pagination, Navigation } from "swiper/modules";
-import ProductCard from "./ProductCard";
+import ProductCard from "./productCard";
 
-import CustomButton from "./CustomButton";
+import CustomButton from "./customButton";
 import Link from "next/link";
 
 export default function BestSellerSection(props) {
