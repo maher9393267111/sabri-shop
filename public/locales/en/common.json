@@ -1,0 +1,78 @@
+{
+    "title": "Home",
+    "home":"Home",
+    "articles":"articles",
+    "me":"Basil Al-Qassab, founder of the Arab Investors Forum, is an administrator and executive of many investment projects with successful partnerships with investors and businessmen. I have a series of international commercial companies in Turkey, America and the Emirates.",
+    "mecompanies":"My Companies",
+    "works":"My works",
+    "articlesTitle":"My Articles",
+    "sigleArticle":"Article",
+    "contactTitle":"Contact with me",
+    "name":"name",
+    "message":"message",
+    "subject":"subject",
+    "phone":"phone number",
+    "email":"email",
+    "send":"Send",
+    "ourtravel":"Our travels",
+    "contactus":"ContactUs",
+
+"services":{
+
+  "title1":"Safety First",
+  "desc1":"Experienced staff and professionally trained chauffeurs",
+  
+  "title2":"Reasonable Rates",
+  "desc2":"We can offer you the right vehicle at the right price to fit your budget",
+  
+  "title3":"Service throughout the day",
+  "desc3":"Our customer support team provides around-the-clock support to our company's customers",
+  
+  "title4":"Nationwide Service",
+  "desc4":"We provide our transportation services nationwide"
+
+
+
+},
+
+"seconeTitle":"A driver who speaks Arabic or English, for private daily trips and tours in all tourist places Fast and smooth direct booking via WhatsApp. The car will be waiting for you according to the requested date and location Arranged tours to invest time in visiting the most beautiful tourist destinations, with the possibility of specifying trip stations as desired"
+
+
+,
+"rent":{
+  "title":"Car rental in Turkey",
+"desc":"Renting modern, air-conditioned cars suitable for large or small families, a car with or without a driver in Istanbul, Antalya Stock Exchange or Trabzon."
+
+
+}
+
+,
+
+"about":{
+  "title":"The services you provide",
+  "list1":"Booking hotels and hotel apartments",
+  "list2":"Rent a car with or without a driver",
+  "list3":"Organizing tourism programs throughout Türkiye",
+  "list4":"Arranging family or youth trips",
+  "list5":"Special prices for tourism companies outside Türkiye"
+  
+  
+  
+  
+  }
+  
+
+
+
+
+
+
+
+
+
+     
+
+    
+  
+    }
+    
