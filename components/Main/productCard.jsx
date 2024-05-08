@@ -4,7 +4,7 @@ import { calculateDiscountedPrice } from "@/functions/firebase/getData";
 
 export default function ProductCard({ title, images ,id,imageAlt ,price ,isoffer ,discount }) {
   return (
-    <Link href={`/products/${id}`}>
+    <Link href={`/products/single?id=${id}`}>
       <div className="group relative cursor-pointer rounded-lg transition-transform duration-700 hover:scale-105 hover:shadow-lg">
         <div className="aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 w-full overflow-hidden rounded-lg bg-gray-200 ">
           <Image

@@ -9,6 +9,7 @@ import Link from "next/link";
 import {useState ,useEffect} from 'react'
 import { useAuth } from "@/functions/context";
 import Loader from "@/components/common/Loader";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 
 const NFT = ({}) => {
 
@@ -169,6 +170,22 @@ if (!product ){
     </Layout>
     )
 }
+
+
+
+
+export const getStaticProps = async ({ locale }) => {
+  //const allProducts = await api.getAllProducts();
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      // allProducts,
+    },
+  };
+};
+
+
+
 
 // const getNFTbyId = async (id) => {
 //     const nftDocument = doc(db, `products`, id);

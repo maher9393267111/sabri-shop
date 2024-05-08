@@ -105,6 +105,22 @@ if (pageLoading )
   );
 }
 
+
+
+export const getStaticProps = async ({ locale }) => {
+  //const allProducts = await api.getAllProducts();
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      // allProducts,
+    },
+  };
+};
+
+
+
+
+
 //serverside
 //ProductsPage.getInitialProps =
 // export const getServerSideProps = async (context) => {

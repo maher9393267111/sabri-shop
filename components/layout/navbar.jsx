@@ -120,7 +120,7 @@ const Navbar = () => {
   console.log("DAS>>>", combinedData);
 
   return (
-    <nav className=" bg-primary px-3 py-5 bg-opacity-80 md:bg-opacity-80 sticky top-0 z-50   text-black md:bg-primary font-primary mx-0 mt-0  bg-no-repeat bg-top md:bg-cover md:bg-top">
+    <nav dir="" className=" bg-primary px-3 arabic py-5 bg-opacity-80 md:bg-opacity-80 sticky top-0 z-50   text-black md:bg-primary font-primary mx-0 mt-0  bg-no-repeat bg-top md:bg-cover md:bg-top">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
         <Link className="flex flex-row" href="/">
           <Image
@@ -164,7 +164,7 @@ const Navbar = () => {
                 href="/"
                 className="block md:hover:text-secondary py-2 px-3 hover:bg-gray-100 text-black rounded hover:md:bg-transparent md:text-black md:p-0   "
               >
-                Home
+              {t("navbar.home")}
               </Link>
             </li>
             <li className="relative">
@@ -177,7 +177,7 @@ const Navbar = () => {
                   href="/products"
                   className=" hover:text-secondary"
                 >
-                  Products
+                  {t('navbar.products')}
                 </Link>
                 <svg
                   className="w-2.5 h-2.5 ms-2.5"
@@ -228,7 +228,7 @@ const Navbar = () => {
                 href="/about"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0    "
               >
-                About Us
+                {t('navbar.about')}
               </Link>
             </li>
             <li>
@@ -237,7 +237,7 @@ const Navbar = () => {
                 href="/Promo"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0     "
               >
-                Promo
+                {t('navbar.gallery')}
               </Link>
             </li>
 
@@ -247,7 +247,7 @@ const Navbar = () => {
                 href="/contact"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0  "
               >
-                Contact
+               {t('navbar.gallery')}
               </Link>
             </li>
             {/* ... other navigation items ... */}

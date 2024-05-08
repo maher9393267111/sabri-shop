@@ -1,4 +1,14 @@
 {
+
+    "navbar":{
+        "home":"Anasayfa",
+        "about" :"Hakkimizda",
+        "contact":"iletişim",
+        "products":"urunlerimiz",
+        "gallery" :"Fotoğraf Galerisi"
+          }
+          ,
+
     "title": "Home",
     "home": "Anasayfa",
     "articles": "articles",

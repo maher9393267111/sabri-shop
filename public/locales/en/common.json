@@ -1,4 +1,16 @@
 {
+
+
+
+  "navbar":{
+    "home":"Home",
+    "about" :"About",
+    "contact":"Contact",
+    "products":"Products",
+    "gallery" : "Gallery"
+      }
+      ,
+
   "title": "Home",
   "home": "Home",
   "articles": "articles",
