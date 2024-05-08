@@ -52,6 +52,9 @@ export default function Recipes() {
     getArticles();
   }, []);
 
+
+
+  
   
   return (
     <MainLayout>

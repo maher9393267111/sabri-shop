@@ -11,7 +11,8 @@ const nextConfig = {
         "dr-nahas.vercel.app",
         "marketplace.canva.com",
         "www.hoponhopoffistanbul.com",
-        "images.unsplash.com"
+        "images.unsplash.com",
+        "res.cloudinary.com"
       ],
     },
 
