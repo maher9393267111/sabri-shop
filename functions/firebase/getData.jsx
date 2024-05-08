@@ -44,6 +44,11 @@ function postToJSON(doc) {
     ...data,
     id: doc.id,
   };
+
+
+ 
+
+
 }
 
 export const calculateDiscountedPrice = (price ,discount) => {
