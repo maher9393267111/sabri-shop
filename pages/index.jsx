@@ -19,6 +19,19 @@ export default function Index({}) {
 
   const router = useRouter();
 
+  const newproductstitle =
+    router.locale === "ar"
+      ? "احدث المنتجات"
+      : router.locale === "en"
+      ? "New Products"
+      : "Yeni ürünler";
+  const discounttitle =
+    router.locale === "ar"
+      ? "التخفيضات"
+      : router.locale === "en"
+      ? "Offers Products"
+      : "indirimler";
+
   console.log("Lodale", router.locale, router);
   //  const aboutus = t("aboutus", { returnObjects: true });
   //  console.log("links", aboutus);
@@ -58,8 +71,6 @@ export default function Index({}) {
       // setPageLoading(false)
     };
 
-
-
     const getOffers = async () => {
       //  setPageLoading(true)
 
@@ -74,34 +85,26 @@ export default function Index({}) {
       // setPageLoading(false)
     };
 
-
     const getFeatures = async () => {
       // setLoading(true);
-      
-       setProducts([]);
-       const data = await getDocumentsOrder(
-         "products",
-         orderBy("timeStamp", "asc"),
-         null ,
-         2
-         
-         
-        
-       );
-   
-       console.log(data, "fetch Propertirs 3====>>>>");
-       setNews(data);
-      
-    
-     };
 
+      setProducts([]);
+      const data = await getDocumentsOrder(
+        "products",
+        orderBy("timeStamp", "asc"),
+        null,
+        2
+      );
 
+      console.log(data, "fetch Propertirs 3====>>>>");
+      setNews(data);
+    };
 
-     getFeatures();
+    getFeatures();
 
     getCats();
     getProducts();
-    getOffers()
+    getOffers();
   }, []);
 
   return (
@@ -115,9 +118,9 @@ export default function Index({}) {
           <CategoryCard data={cats} />
         </div>
 
-        <ProductSlider title ={"Discount Offers"} data={offers} />
+        <ProductSlider title={discounttitle} data={offers} />
 
-        <ProductSlider title ={"New products"} data={news} />
+        <ProductSlider title={newproductstitle} data={news} />
 
         {/* <BannerSlider/>
 

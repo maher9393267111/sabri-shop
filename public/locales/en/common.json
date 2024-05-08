@@ -26,7 +26,8 @@
   "phone": "phone number",
   "email": "email",
   "send": "Send",
-  "ourtravel": "Our travels",
+  "address":"address",
+  "allproductstitle": "Tüm ürünler",
   "contactus": "ContactUs",
   "services": {
     "title1": "Safety First",

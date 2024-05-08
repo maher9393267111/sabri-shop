@@ -2,8 +2,10 @@ import { NextSeo } from "next-seo";
 import Image from "next/image";
 import React from "react";
 import Layout from "@/components/layout";
-
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "react-i18next";
 function Hakkimizda() {
+  const { t } = useTranslation("common");
   return (
     <Layout>
 
@@ -67,5 +69,19 @@ function Hakkimizda() {
     </Layout>
   );
 }
+
+
+
+export const getStaticProps = async ({ locale }) => {
+  //const allProducts = await api.getAllProducts();
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      // allProducts,
+    },
+  };
+};
+
+
 
 export default Hakkimizda;

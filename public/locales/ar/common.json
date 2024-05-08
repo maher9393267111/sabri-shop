@@ -28,9 +28,10 @@
     "phone":"رقم الهاتف",
     "email":"البريد",
     "send":"إرسال",
+    "address":"العنوان",
     "ourtravel":"رحلاتنا",
     "contactus":"تواصل معنا",
-
+    "allproductstitle": "كافة المنتجات",
     "services":{
 
       "title1":"السلامة اولا",

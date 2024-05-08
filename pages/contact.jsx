@@ -7,7 +7,13 @@ import Layout from "@/components/layout";
 
 import { useAuth } from "@/functions/context";
 import Loader from "@/components/common/Loader";
+import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "react-i18next";
 function ContactUs() {
+
+
+  const { t } = useTranslation("common");
+
 
   const {pageLoading, setPageLoading} = useAuth()
    
@@ -93,10 +99,10 @@ function ContactUs() {
         title="itpromax | ITPRO | IT PROMAX | IT PRO MAX"
         description="ITPROMAX is a small business "
       />
-      <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 md:py-16 lg:px-8">
+      <div className="mx-auto arabic max-w-7xl px-4 py-8 sm:px-6 md:py-16 lg:px-8">
         <section>
-          <h1 className="text-4xl font-bold tracking-tight text-rose-600 sm:text-5xl md:text-6xl">
-            Contact Us
+          <h1 className="text-4xl arabic font-bold tracking-tight text-rose-600 sm:text-5xl md:text-6xl">
+          {t("contactus")}
           </h1>
           <p className="my-4 text-lg duration-200 hover:text-rose-600 md:justify-start">
             <a
@@ -104,7 +110,7 @@ function ContactUs() {
               rel="noopener noreferrer"
               href="https://maps.app.goo.gl/aVHAza3KnaQqYdfy6"
             >
-              <strong>Address:</strong> Lebanon, Beirut - Hamra Street
+              <strong>{t("address")}:</strong> Lebanon, Beirut - Hamra Street
             </a>
           </p>
         </section>
@@ -127,14 +133,15 @@ function ContactUs() {
                 <form className="space-y-4"  onSubmit={(e) => Submit(e)}>
                   <div>
                     <label className="sr-only" htmlFor="name">
-                      Name
+                    {t("name")}
                     </label>
                     <input
+                    
                        name="Name"
                        ref={nameRef}
                        
                       className="w-full rounded-lg border p-3 text-sm drop-shadow-xl focus-within:outline-none focus:border-rose-600"
-                      placeholder="Name"
+                      placeholder={t("name")}
                       type="text"
                       id="name"
                       
@@ -144,11 +151,11 @@ function ContactUs() {
                   <div className="grid grid-cols-1 gap-4 sm:grid-cols-2">
                     <div>
                       <label className="sr-only" htmlFor="email">
-                        Email
+                      {t("email")}
                       </label>
                       <input
                         className="w-full rounded-lg border p-3 text-sm drop-shadow-xl focus-within:outline-none focus:border-rose-600"
-                        placeholder="Email "
+                        placeholder={t("email")}
                         type="email"
                         id="email"
                         name="Email"
@@ -159,11 +166,11 @@ function ContactUs() {
                     </div>
                     <div>
                       <label className="sr-only" htmlFor="phone">
-                        Phone
+                      {t("phone")}
                       </label>
                       <input
                         className="w-full rounded-lg border p-3 text-sm drop-shadow-xl focus-within:outline-none focus:border-rose-600"
-                        placeholder="Phone Number"
+                        placeholder={t("phone")}
                         type="tel"
                         id="Phone"
                         name="Phone"
@@ -174,11 +181,11 @@ function ContactUs() {
                   </div>
                   <div>
                     <label className="sr-only" htmlFor="message">
-                      Message
+                    {t("message")}
                     </label>
                     <textarea
                       className="w-full rounded-lg border p-3 text-sm drop-shadow-xl focus-within:outline-none focus:border-rose-600"
-                      placeholder="Message"
+                      placeholder={t("message")}
                       rows={8}
                       id="message"
                       name="message"
@@ -194,7 +201,7 @@ function ContactUs() {
                       type="submit"
                       className="inline-flex w-full items-center justify-center rounded-lg bg-rose-600 px-5 py-3 text-white sm:w-auto"
                     >
-                      <span className="font-medium"> Submit </span>
+                      <span className="font-medium"> {t("send")} </span>
                       <svg
                         xmlns="http://www.w3.org/2000/svg"
                         className="ml-3 h-5 w-5"
@@ -222,5 +229,19 @@ function ContactUs() {
     </Layout>
   );
 }
+
+
+export const getStaticProps = async ({ locale }) => {
+  //const allProducts = await api.getAllProducts();
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      // allProducts,
+    },
+  };
+};
+
+
+
 
 export default ContactUs;

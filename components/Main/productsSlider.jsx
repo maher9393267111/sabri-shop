@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 // Import Swiper React components
 import { Swiper, SwiperSlide } from "swiper/react";
+import { useTranslation } from "react-i18next";
 
 // Import Swiper styles
 import "swiper/css";
@@ -15,6 +16,10 @@ import CustomButton from "./customButton";
 import Link from "next/link";
 
 export default function BestSellerSection(props) {
+
+const  {t} = useTranslation()
+
+
   return (
     <div className=" mx-12 mb-12">
       <div className="flex  flex-row justify-between items-center">
@@ -24,7 +29,7 @@ export default function BestSellerSection(props) {
         </div>
         <Link href="/products">
           <CustomButton
-            title="Shop All Products ->"
+            title={`${t("allproductstitle") } ->`}
             containerStyles="px-6 py-2 items-center justify-center border bg-primary border-transparent text-black text-md font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           />
         </Link>

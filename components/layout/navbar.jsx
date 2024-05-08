@@ -260,7 +260,7 @@ const Navbar = () => {
                       English
                     </Link>
                     <Link href={asPath} locale="tr">
-                      Arabic
+                      Turkish
                     </Link>
                   </div>
                 ) : locale == "tr" ? (
