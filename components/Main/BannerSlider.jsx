@@ -48,7 +48,8 @@ const Banner = ({ data}) => {
   >
     {data?.map((item) => (
       <SwiperSlide key={data.id}>
-        <div key={data.id} className="relative !bg-black !opaci-[0.9] overflow-hidden">
+        {/* //!bg-black !opaci-[0.9]  */}
+        <div key={data.id} className="relative overflow-hidden">
           <div className="">
             <Image
               src={item?.image}
