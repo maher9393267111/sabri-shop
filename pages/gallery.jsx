@@ -129,7 +129,7 @@ export default function GalleryPage() {
       setPageLoading(true);
       setProducts([]);
       const data = await getDocumentsOrder(
-        "slider",
+        "gallery",
         orderBy("timeStamp", "asc")
       );
 
