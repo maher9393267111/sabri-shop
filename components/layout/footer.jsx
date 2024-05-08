@@ -17,7 +17,7 @@ const SocialButtons = () => {
     {
       name: 'Whatsapp',
       icon: <FaWhatsapp />,
-      link: 'https://wtspee.com/9055379732131',
+      link: 'https://wtspee.com/905379732131',
     },
     {
       name: 'Instagram',

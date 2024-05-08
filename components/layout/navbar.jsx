@@ -118,7 +118,8 @@ const Navbar = () => {
           </div>
           <div className="flex flex-row space-x-2">
             <FaRegClock className="w-5 h-5 arabic text-gray-500" />
-            <p className="arabic">السبت-الخميس: 08:00 - 6:00</p>
+            <p className="arabic"> Cumartesi-Perşembe
+             08:00 - 6:00</p>
           </div>
         </div>
         <div className="flex flex-row space-x-4  justify-center items-center ">
@@ -135,7 +136,7 @@ const Navbar = () => {
 
 </a>
 
-          <a href="https://wtspee.com/9055379732131" target="_blank">
+          <a href="https://wtspee.com/905379732131" target="_blank">
             <FaWhatsapp className="w-6 h-6 text-gray-500" />
           </a>
 
