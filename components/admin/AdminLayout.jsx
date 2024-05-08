@@ -27,6 +27,8 @@ const AdminLayout = ({ children }) => {
     // { id: 8, text: "All Articles", path: "/admin/article/all" },
     { id: 9, text: "Add Sliders", path: "/admin/slider/add" },
     { id: 10, text: "All Sliders", path: "/admin/slider/all" },
+    { id: 11, text: "Add Gallery", path: "/admin/gallery/add" },
+    { id: 12, text: "All Galleries", path: "/admin/gallery/all" },
 
   ];
 
