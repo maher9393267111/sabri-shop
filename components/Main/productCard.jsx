@@ -30,20 +30,35 @@ const titlelng  = router.locale === 'ar' ? titlear : router.locale === 'en' ? ti
           </h3>
 
           <div className="flex items-center justify-between">
+
+       
+
+            {isoffer === true ?
+
           <div className="space-x-2 !w-full text-center">
-            <span className="text-lg font-semibold line-through text-white ">
+            <span className="text-lg md:text-xl font-semibold line-through text-white ">
               ${price}
             </span>
 
-            {isoffer === true &&
+           
 
             <span className="text-lg font-bold text-gray-900 ">
               ${calculateDiscountedPrice(price ,discount)}
             </span>
 
-            }
+           
           </div>
-       
+
+          :  <div className="text-center !w-full">
+
+          <span className="text-lg md:text-xl text-center font-semibold  text-white ">
+          ${price}
+        </span>
+        </div> 
+}
+
+
+
         </div>
 
 

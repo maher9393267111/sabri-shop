@@ -108,7 +108,7 @@ const Navbar = () => {
         <div className="lg:flex lg:flex-row flex flex-col justify-center items-baseline md:items-center space-x-12 lg:space-y-0 space-y-2">
           <div className="flex flex-row space-x-2">
             <FaMapMarkerAlt className="w-5 h-5 text-gray-500" />
-            <p> 
+            <p className="arabic"> 
                {locale === 'ar' ? 'تركيا-افيون' : 'TÜRKİYE-AFYONKARAHİSAR'}
                </p>
           </div>
