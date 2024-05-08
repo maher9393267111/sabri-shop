@@ -68,7 +68,7 @@ setPageLoading(false)
     
     };
     getData();
-  }, [subcategorydata]);
+  }, [subcategorydata ,category]);
 
 
 

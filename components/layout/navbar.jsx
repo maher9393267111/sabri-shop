@@ -260,7 +260,7 @@ const Navbar = () => {
             <li>
               <Link
                 onClick={closeAllMenus}
-                href="/admin/products/all"
+                href="/admin/product/all"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0    "
               >
                 {t('navbar.dash')}
