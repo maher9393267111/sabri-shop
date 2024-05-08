@@ -46,9 +46,7 @@ function postToJSON(doc) {
   };
 
 
- 
-
-
+  
 }
 
 export const calculateDiscountedPrice = (price ,discount) => {

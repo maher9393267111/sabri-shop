@@ -48,23 +48,18 @@ export const getServerSideProps = async (context) => {
 
   try {
   let products = [];
-  //navbar.jsx href={`/products?category=${item.title.toLowerCase()}`}
+  
   const category = context.query.category;
   const subcategory = context.query.subcategory;
-  // step 1
+ 
   const search = context.query.search;
 
-  //console.log("categoryyyyy", category);
-
-  //console.log("subcategoryyyyy", subcategory);
-
-  //    where("fieldname", "==", fieldValue)
 
   products = await getDocumentsOrder(
     "products",
     orderBy("timeStamp", "desc"),
 
-    //category i am searching for all products that have a category name / same as subcategory , else null nothing (filteration)
+ 
     category
       ? where("category", "==", category)
       : subcategory
@@ -76,8 +71,7 @@ export const getServerSideProps = async (context) => {
     "subcats",
     orderBy("timeStamp", "asc"),
 
-    //category i am searching for all products that have a category name / same as subcategory , else null nothing (filteration)
-    //contextquery.query  // null all subcategories , category parent te3 subcategories ( sub cat limited)
+
     category ? where("category", "==", category) : null
   );
 

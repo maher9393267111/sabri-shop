@@ -1,21 +1,63 @@
 import Layout from "@/components/layout/index";
 import { doc, getDoc } from "firebase/firestore";
+import { getDocument } from "@/functions/firebase/getData";
 import { db } from "@/functions/firebase";
 import Image from "next/image";
 import { NextSeo } from "next-seo";
 import { useRouter } from "next/router";
 import Link from "next/link";
-const NFT = ({nft:product}) => {
-console.log("nft" ,product)
-const router =useRouter()
+import {useState ,useEffect} from 'react'
+import { useAuth } from "@/functions/context";
+import Loader from "@/components/common/Loader";
+
+const NFT = ({}) => {
+
+
+
+const [product, setProduct] = useState({});
+console.log("🎭🎭🎭>", product.title);
+//  const [loacding, setLoading] = useState(false);
+const {pageLoading, setPageLoading} = useAuth()
+
+const router = useRouter();
+const locale = router.locale;
+const id = router.query.id;
+
+//const { t } = useTranslation();
+
+useEffect(() => {
+  const getProduct = async () => {
+   // setLoading(true);
+   setPageLoading(true)
+    //setProduct({});
+    const data = await getDocument("products", id);
+    console.log(data, "fetch categories ====>>> 🎭🎭🎭>", data);
+    setProduct(data);
+    setPageLoading(false)
+   // setLoading(false);
+  };
+
+  if (id) getProduct();
+}, [id]);
+
+
+
+
 
 const dir =router.locale === 'ar' && 'rtl'
+
+if (!product ){
+
+    return <div><h1>No Product Founded</h1></div>
+}
+
+
 
 
     return (
         <Layout>
           <div>
-      <NextSeo
+      {/* <NextSeo
         title={product?.title + " | Sandalye" + " | Ayka Chair"}
         description={"İnegöl Sandalye " + product?.title + " Model"}
         canonical={router.asPath}
@@ -25,7 +67,7 @@ const dir =router.locale === 'ar' && 'rtl'
           description: "İnegöl Sandalye " + product?.title + " Model",
           images: [
             {
-              url: product?.images[0],
+              url: product?.images[0] || null,
               alt: product?.title,
               type: "image/jpeg",
             },
@@ -37,12 +79,16 @@ const dir =router.locale === 'ar' && 'rtl'
           site: "@aykachair",
           cardType: "summary_large_image",
         }}
-      />
+      /> */}
       <div>
+
+        {product?.images &&
         <section>
           <div className="relative mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
             <div className="grid grid-cols-1 items-start gap-8 md:grid-cols-2 ">
               <div className="relative order-2 grid grid-cols-1 gap-4 md:order-none">
+
+
                 <div className="aspect-w-1 aspect-h-1 ">
                   <Image
                     className="bg-grad rounded-xl"
@@ -115,6 +161,7 @@ const dir =router.locale === 'ar' && 'rtl'
             </div>
           </div>
         </section>
+}
       </div>
     </div>
         
@@ -123,22 +170,24 @@ const dir =router.locale === 'ar' && 'rtl'
     )
 }
 
-const getNFTbyId = async (id) => {
-    const nftDocument = doc(db, `products`, id);
-    const nft = await getDoc(nftDocument);
+// const getNFTbyId = async (id) => {
+//     const nftDocument = doc(db, `products`, id);
+//     const nft = await getDoc(nftDocument);
 
-    if (!nft.exists()) {
-        return false;
-    }
+//     if (!nft.exists()) {
+//         return false;
+//     }
 
-    return nft.data();
-}
+//     return nft.data();
+// }
 
-NFT.getInitialProps = async (ctx) => {
-    const nftData = await getNFTbyId(ctx.query.id)
+// NFT.getInitialProps = async (ctx) => {
+//     const nftData = await getNFTbyId(ctx.query.id)
 
-    return {
-        nft : nftData,
-    }
-}
+//     return {
+//         nft : nftData,
+//     }
+// }
+
+
 export default NFT;
