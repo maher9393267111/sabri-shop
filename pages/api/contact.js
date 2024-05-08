@@ -23,7 +23,7 @@ async function sendEmail({ name, email, phone, desc}) {
     const defaultYear = new Date().getFullYear();
   const emailOptions = {
     form: email,
-    to: "basma94ghanem@gmail.com",
+    to: "sabree.tadile@gmail.com",
     subject: `Contact Message from ${email}`,
     html: `<body style="background: #f3f4f6; padding:0 5px;">
     <div style="max-width: 600px; margin: 0 auto; padding: 20px 0; font-family:Trebuchet MS;">
@@ -43,7 +43,7 @@ async function sendEmail({ name, email, phone, desc}) {
     </div>
     
     <footer style="text-align: center; padding: 5px 0; color: #000; font-size: 1rem;">
-    <h2>baselkasaboglu</h2>
+    <h2>WEBSITE</h2>
     <p>© ${defaultYear} All rights reserved</p>
     </footer>
     </body>`

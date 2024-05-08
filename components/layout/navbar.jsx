@@ -108,7 +108,9 @@ const Navbar = () => {
         <div className="lg:flex lg:flex-row flex flex-col justify-center items-center space-x-12 lg:space-y-0 space-y-2">
           <div className="flex flex-row space-x-2">
             <FaMapMarkerAlt className="w-5 h-5 text-gray-500" />
-            <p>Intalya , Turkey</p>
+            <p>ANKARA-AFYON KARAYOLU 
+               {/* No:7 03750 İscehisar/ Afyon */}
+               </p>
           </div>
           <div className="flex flex-row space-x-2">
             <FaMobileAlt className="w-5 h-5 text-gray-500" />
@@ -127,11 +129,11 @@ const Navbar = () => {
             <FaFacebook className="w-6 h-6 text-gray-500" />
           </a>
 
-          {/* <a href="https://www.instagram.com/alusturizm?utm_source=qr&igsh=MWZudWhscTh4dGppbg==" target="_blank">
+          <a href="https://www.instagram.com/tedili.mermer?igsh=MWJ4cnQzMzBlbjJqag%3D%3D" target="_blank">
             <FaInstagram className="w-6 h-6 text-gray-500" />
 
 
-</a> */}
+</a>
 
           <a href="https://wtspee.com/9055379732131" target="_blank">
             <FaWhatsapp className="w-6 h-6 text-gray-500" />
@@ -154,18 +156,19 @@ const Navbar = () => {
 
       <nav
         dir=""
-        className=" bg-primary px-3 arabic py-5 bg-opacity-80 md:bg-opacity-80 sticky top-0 z-50   text-black md:bg-primary font-primary mx-0 mt-0  bg-no-repeat bg-top md:bg-cover md:bg-top"
+        className="   bg-black bg-yelow-100 px-3 arabic py-5 bg-opacity-80 md:bg-opacity-80 sticky top-0 z-50   text-black md:bg-primar font-primary mx-0 mt-0  bg-no-repeat bg-top md:bg-cover md:bg-top"
       >
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
           <Link className="flex flex-row shimmer !shadow-2xl" href="/">
-            {/* <Image
-              src="https://ik.imagekit.io/m1akscp5q/logo%20bac%20horizontal%20hitam%201.png?updatedAt=1705581337965"
-              width={193}
-              height={48}
+            <Image
+            src={'/logo.png'}
+            // src="https://ik.imagekit.io/m1akscp5q/logo%20bac%20horizontal%20hitam%201.png?updatedAt=1705581337965"
+              width={66}
+              height={66}
               alt="logo bac"
-            /> */}
+            />
 
-            Tedili Mermer
+            {/* Tedili Mermer */}
           </Link>
           <button
             type="button"
@@ -197,18 +200,18 @@ const Navbar = () => {
             }`}
             id="navbar-dropdown"
           >
-            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent bg-white ">
+            <ul className="flex flex-col font-medium p-4 md:p-0 mt-4 border border-gray-100 rounded-lg  md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-transparent bg-black ">
               <li onClick={toggleClose}>
                 <Link
                   href="/"
-                  className="block md:hover:text-secondary py-2 px-3 hover:bg-gray-100 text-black rounded hover:md:bg-transparent md:text-black md:p-0   "
+                  className="block md:hover:text-secondary py-2 px-3 hover:bg-gay-100 !text-primary rounded hover:md:bg-transparent md:text-black md:p-0   "
                 >
                   {t("navbar.home")}
                 </Link>
               </li>
               <li className="relative">
                 <button
-                  className="flex  items-center justify-between w-full py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 md:w-auto  "
+                  className="flex  items-center justify-between w-full py-2 px-3 !text-primary rounded md:hover:bg-transparent md:border-0 md:hover:text-secondary md:p-0 md:w-auto  "
                   onClick={toggleDropdown}
                 >
                   <Link
@@ -270,7 +273,7 @@ const Navbar = () => {
                 <Link
                   onClick={closeAllMenus}
                   href="/about"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0    "
+                  className="block py-2 px-3 !text-primary rounded  md:hover:bg-transparent md:hover:text-secondary md:p-0    "
                 >
                   {t("navbar.about")}
                 </Link>
@@ -279,7 +282,7 @@ const Navbar = () => {
                 <Link
                   onClick={closeAllMenus}
                   href="/gallery"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0     "
+                  className="block py-2 px-3 !text-primary rounded  md:hover:bg-transparent md:hover:text-secondary md:p-0     "
                 >
                   {t("navbar.gallery")}
                 </Link>
@@ -289,7 +292,7 @@ const Navbar = () => {
                 <Link
                   onClick={closeAllMenus}
                   href="/contact"
-                  className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0  "
+                  className="block py-2 px-3 !text-primary rounded  md:hover:bg-transparent md:hover:text-secondary md:p-0  "
                 >
                   {t("navbar.contact")}
                 </Link>
@@ -300,7 +303,7 @@ const Navbar = () => {
                   <Link
                     onClick={closeAllMenus}
                     href="/admin/product/all"
-                    className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0    "
+                    className="block py-2 px-3 !text-primary rounded  md:hover:bg-transparent md:hover:text-secondary md:p-0    "
                   >
                     {t("navbar.dash")}
                   </Link>
@@ -331,7 +334,7 @@ const Navbar = () => {
                   ) : locale == "tr" ? (
                     <div className="flex gap-2">
                       <Link
-                        className="bg-black text-white rounded-xl  px-4"
+                        className="bg-black !text-primary rounded-xl  px-4"
                         href={asPath}
                         locale="en"
                       >
@@ -339,7 +342,7 @@ const Navbar = () => {
                       </Link>
 
                       <Link
-                        className="bg-black text-white rounded-xl  px-4"
+                        className="bg-black !text-primary rounded-xl  px-4"
                         href={asPath}
                         locale="ar"
                       >
@@ -349,7 +352,7 @@ const Navbar = () => {
                   ) : (
                     <div className="flex gap-2">
                       <Link
-                        className="bg-black text-white rounded-xl  px-4"
+                        className="bg-black !text-primary rounded-xl  px-4"
                         href={asPath}
                         locale="ar"
                       >
@@ -357,7 +360,7 @@ const Navbar = () => {
                       </Link>
 
                       <Link
-                        className="bg-black text-white rounded-xl  px-4"
+                        className="bg-black !text-primary rounded-xl  px-4"
                         href={asPath}
                         locale="tr"
                       >

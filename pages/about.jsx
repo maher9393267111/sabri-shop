@@ -30,7 +30,7 @@ const router = useRouter()
 
 
 
-{t("aboutdesc")}
+{t("aboutdescbig")}
 
                 {/* Firmamızın ana gayesi,sektöründe yenilik ve gelişmeye açık
                 olarak dünyada ve ülkemizde gelişmeleri izleyerek, hitap ettiği

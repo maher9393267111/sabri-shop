@@ -111,7 +111,8 @@ const router =useRouter()
               rel="noopener noreferrer"
               href="https://maps.app.goo.gl/aVHAza3KnaQqYdfy6"
             >
-              <strong>{t("address")}:</strong> Istanbul, Turkey - Alfatih Street
+              <strong>{t("address")}:</strong> 
+             
             </a>
           </p>
         </section>
@@ -119,7 +120,7 @@ const router =useRouter()
         <div className="md:grid grid-cols-1 gap-5 py-4 md:grid-cols-2 md:py-8 flex  flex-col-reverse">
           <section className="h-64 md:h-full">
             <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d6623.454391220492!2d35.47801366604833!3d33.89667909785311!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x151f17283e7e3ced%3A0x740bcfc330ca9eb0!2sHamra%2C%20Beirut!5e0!3m2!1sen!2slb!4v1706309292921!5m2!1sen!2slb"
+              src="https://www.google.com/maps/embed?pb=!1m17!1m12!1m3!1d3107.6416372148756!2d30.73896208465131!3d38.84066727957938!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m2!1m1!2zMzjCsDUwJzI2LjQiTiAzMMKwNDQnMTIuNCJF!5e0!3m2!1sar!2str!4v1715176272556!5m2!1sar!2str"
               width="100%"
               height="100%"
               style={{ border: 0 }}
