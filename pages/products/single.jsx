@@ -124,7 +124,7 @@ if (!product ){
 
 <div className="inline-flex rounded-md shadow">
     
-      <p className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-base font-medium text-black ">
+      <p className="inline-flex arabic items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-base font-medium text-black ">
         {product?.price}$
       </p>
     
@@ -135,14 +135,14 @@ if (!product ){
  
       <a
       href="https://wtspee.com/9055379732131" target="_blank"
-      className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-base font-medium text-black ">
+      className="inline-flex arabic items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-base font-medium text-black ">
       {t('whatsapptitle')}
       </a>
     
   </div>
   <div className="ml-3 inline-flex rounded-md shadow">
     <Link legacyBehavior href="/products">
-      <a className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-rose-600 hover:bg-rose-50">
+      <a className="inline-flex arabic items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-rose-600 hover:bg-rose-50">
         {t('shopgo')}
       </a>
     </Link>
