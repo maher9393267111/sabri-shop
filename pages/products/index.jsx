@@ -1,6 +1,8 @@
 import React from "react";
 import { orderBy, where } from "firebase/firestore";
 import { getDocuments, getDocumentsOrder } from "@/functions/firebase/getData";
+import { useAuth } from "@/functions/context";
+import { useState,useEffect } from "react";
 import CategoryCard from "@/components/Main/CategoryCard";
 import ProductCard from "@/components/Main/productCard";
 import { useTranslation } from "react-i18next";
@@ -8,19 +10,80 @@ import { useRouter } from "next/router";
 import Layout from "@/components/layout";
 import safeJsonStringify from "safe-json-stringify";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import Loader from "@/components/common/Loader";
 
-export default function ProductsPage({ products, subcats, subcategory }) {
-  console.log("ProductsPage", subcategory);
+export default function ProductsPage({ }) {
+  //console.log("ProductsPage", subcategory);
 
   const router = useRouter();
   const { locale } = router;
 
   const { t } = useTranslation();
 
+
+  const [products, setProducts] = useState([]);
+  const [subcats ,setsubCats] = useState([])
+  const [subcategory ,setSubCategory] =useState(null)
+ const [pageLoading, setPageLoading] = useState(true);
+
+
+ const category = router.query.category;
+ const subcategorydata = router.query.subcategory;
+
+ const search = router.query.search;
+
+
+  useEffect(() => {
+    const getData = async () => {
+      setPageLoading(true)
+      let productsdata = []
+
+    
+    
+      productsdata = await getDocumentsOrder(
+        "products",
+        orderBy("timeStamp", "desc"),
+    
+     
+        category
+          ? where("category", "==", category)
+          : subcategory
+          ? where("subcategory", "==", subcategorydata)
+          : null
+      );
+    
+      const subcatsdata = await getDocumentsOrder(
+        "subcats",
+        orderBy("timeStamp", "asc"),
+    
+    
+        category ? where("category", "==", category) : null
+      );
+   
+      setProducts(productsdata)
+      setsubCats(subcatsdata)
+      setSubCategory(subcategorydata)
+setPageLoading(false)
+
+    
+    };
+    getData();
+  }, [subcategorydata]);
+
+
+
+if (pageLoading )
+  {
+    return <Loader/>
+  }
+
+
+
   return (
     <Layout>
+      {subcategorydata}
       <div className="scroll-smooth  mx-7">
-        {!subcategory && (
+        {!subcategorydata  && (
           <div className="mt-12">
             {subcats?.length && subcats?.length > 0 && (
               <CategoryCard sub={true} data={subcats} />
@@ -44,74 +107,74 @@ export default function ProductsPage({ products, subcats, subcategory }) {
 
 //serverside
 //ProductsPage.getInitialProps =
-export const getServerSideProps = async (context) => {
+// export const getServerSideProps = async (context) => {
 
-  try {
-  let products = [];
+//   try {
+//   let products = [];
   
-  const category = context.query.category;
-  const subcategory = context.query.subcategory;
+//   const category = context.query.category;
+//   const subcategory = context.query.subcategory;
  
-  const search = context.query.search;
+//   const search = context.query.search;
 
 
-  products = await getDocumentsOrder(
-    "products",
-    orderBy("timeStamp", "desc"),
+//   products = await getDocumentsOrder(
+//     "products",
+//     orderBy("timeStamp", "desc"),
 
  
-    category
-      ? where("category", "==", category)
-      : subcategory
-      ? where("subcategory", "==", subcategory)
-      : null
-  );
+//     category
+//       ? where("category", "==", category)
+//       : subcategory
+//       ? where("subcategory", "==", subcategory)
+//       : null
+//   );
 
-  const subcats = await getDocumentsOrder(
-    "subcats",
-    orderBy("timeStamp", "asc"),
-
-
-    category ? where("category", "==", category) : null
-  );
-
-  const productss = JSON.parse(
-    safeJsonStringify(
-      products?.map((docSnap) => ({
-        id: docSnap.id,
-        ...docSnap,
-      }))
-    )
-  );
-
-  const subcatss = JSON.parse(
-    safeJsonStringify(
-      subcats?.map((docSnap) => ({
-        id: docSnap.id,
-        ...docSnap,
-      }))
-    )
-  );
-
-  return {
-    props: {
-      // props from serverside will go to props in clientside
-      products: products ? productss : [],
-
-      subcats: subcats ? subcatss : [],
-      subcategory: subcategory ? subcategory : null,
-      // ...(await serverSideTranslations(context.locale, ["common"])),
-    },
-  };
-
-}
-
-  catch (error) {
-    console.log(error)
-    return null
-}
+//   const subcats = await getDocumentsOrder(
+//     "subcats",
+//     orderBy("timeStamp", "asc"),
 
 
+//     category ? where("category", "==", category) : null
+//   );
+
+//   const productss = JSON.parse(
+//     safeJsonStringify(
+//       products?.map((docSnap) => ({
+//         id: docSnap.id,
+//         ...docSnap,
+//       }))
+//     )
+//   );
+
+//   const subcatss = JSON.parse(
+//     safeJsonStringify(
+//       subcats?.map((docSnap) => ({
+//         id: docSnap.id,
+//         ...docSnap,
+//       }))
+//     )
+//   );
+
+//   return {
+//     props: {
+//       // props from serverside will go to props in clientside
+//       products: products ? productss : [],
+
+//       subcats: subcats ? subcatss : [],
+//       subcategory: subcategory ? subcategory : null,
+//       // ...(await serverSideTranslations(context.locale, ["common"])),
+//     },
+//   };
+
+// }
+
+//   catch (error) {
+//     console.log(error)
+//     return null
+// }
 
 
-};
+
+
+// };
