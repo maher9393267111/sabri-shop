@@ -216,6 +216,8 @@ const Navbar = () => {
                   >
                     {t("navbar.products")}
                   </Link>
+
+{combinedData?.length > 0 &&
                   <svg
                     className="w-2.5 h-2.5 ms-2.5"
                     aria-hidden="true"
@@ -231,6 +233,9 @@ const Navbar = () => {
                       d="m1 1 4 4 4-4"
                     />
                   </svg>
+}
+
+
                 </button>
                 {/* Dropdown menu */}
                 {isDropdownOpen && (

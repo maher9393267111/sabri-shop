@@ -9,7 +9,7 @@ import "swiper/css/pagination";
 import "swiper/css/navigation";
 
 // import required modules
-import { Pagination, Navigation } from "swiper/modules";
+import { Pagination, Navigation ,Autoplay } from "swiper/modules";
 import ProductCard from "./productCard";
 
 import CustomButton from "./customButton";
@@ -21,7 +21,7 @@ const  {t} = useTranslation()
 
 
   return (
-    <div className=" mx-12 mb-12">
+    <div  className=" mx-12 mb-12">
       <div className="flex my-6  flex-row justify-between items-center">
         <div>
           {/* <p className="text-base font-medium text-primary">Shop by Category</p> */}
@@ -55,7 +55,17 @@ const  {t} = useTranslation()
             slidesPerView: 4,
           },
         }}
-        modules={[Pagination, Navigation]}
+        dir=""
+        // modules={[Pagination, Navigation]}
+        
+       
+        
+        autoplay={{
+          delay: 3000
+        }}
+        modules={[Navigation, Autoplay, Pagination]}
+
+
         className="mySwiper">
         {props?.data?.map((product) => (
           <SwiperSlide key={product?.id}>

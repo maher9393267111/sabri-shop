@@ -134,6 +134,10 @@ export default function Index({}) {
           </div>
         )}
 
+        <div>
+
+      
+
         {offers && offers?.length > 0 && (
           <ProductSlider title={discounttitle} data={offers} />
         )}
@@ -141,6 +145,8 @@ export default function Index({}) {
         {news && news?.length > 0 && (
           <ProductSlider title={newproductstitle} data={news} />
         )}
+
+</div>
 
         {/* <BannerSlider/>
 
