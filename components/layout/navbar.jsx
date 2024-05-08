@@ -161,15 +161,23 @@ const Navbar = () => {
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
           <Link className="flex flex-row shimmer !shadow-2xl" href="/">
             <Image
+            className=" object-cover"
             src={'/logo.png'}
             // src="https://ik.imagekit.io/m1akscp5q/logo%20bac%20horizontal%20hitam%201.png?updatedAt=1705581337965"
-              width={66}
-              height={66}
+              width={80}
+              height={80}
               alt="logo bac"
             />
 
-            {/* Tedili Mermer */}
+       
           </Link>
+
+<div className="md:hidden arabic shimmer text-3xl ">
+
+Tedili Mermer
+</div>
+
+
           <button
             type="button"
             className="inline-flex items-center p-2 w-10 h-10 justify-center text-sm text-gray-500 rounded-lg md:hidden  focus:outline-none focus:ring-2"

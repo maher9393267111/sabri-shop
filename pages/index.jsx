@@ -9,6 +9,7 @@ import Layout from "@/components/layout";
 import BannerSlider from "@/components/Main/BannerSlider";
 import CategoryCard from "@/components/Main/CategoryCard";
 import ProductSlider from "@/components/Main/productsSlider";
+import { NextSeo } from "next-seo";
 // import Service from "@/components/Main/Services";
 // import SectionOne from "@/components/Main/SectionOne";
 // import Travels from "@/components/Main/Travels";
@@ -125,6 +126,10 @@ export default function Index({}) {
 
   return (
     <Layout dir={router.locale === "ar" ? "rtl" : "ltr"}>
+
+<NextSeo title="Tedili  | Hakkımızda | Tedili Mermer" />
+
+
       <div className="scroll-smooth mb-16  ">
         {sliders && sliders?.length > 0 && <BannerSlider data={sliders} />}
 
