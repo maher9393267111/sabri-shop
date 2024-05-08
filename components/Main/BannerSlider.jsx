@@ -12,24 +12,15 @@ import Image from 'next/image'
 
 
 const Banner = ({ data}) => {
-//https://bzmmotors.com/mercedes/vito/25821
 
-  // const bannerData = [
-
-  //    { id: 4, img: "/cars/slider-1.jpg"  ,title:"Discount"},
-  //    { id: 5, img: "/cars/slider-33.jpg" ,title:"Discount" },
-  //    { id: 6, img: "/cars/slider-34.jpg" ,title:"Discount"},
-  //    { id: 7, img: "/cars/slider-36.jpg" ,title:"Discount" },  
-  //    { id: 8, img: "/cars/slider-37.jpg" , title:"Discount" },  
   
-  // ];
 
 
   const router =useRouter()
 
 
 
-  //const titlelng =()=>  {return  router.locale === 'ar' ? titlear : router.locale === 'en' ? title : titletr}
+
 
 
     return (
@@ -58,9 +49,10 @@ const Banner = ({ data}) => {
               height={300}
               style={{ height: 260 }}
             />
-            <div className="absolute top-0 left-0 h-full w-full bg-black opacity-70"></div>
+            {/* //bg-black opacity-70 */}
+            <div className="absolute top-0 left-0 h-full w-full hero-overlay "></div>
           </div>
-          <div className="hero-overlay ">
+          <div className="hero-overla ">
 
 </div>
           <div className="absolute top-24 left-24 z-10">
