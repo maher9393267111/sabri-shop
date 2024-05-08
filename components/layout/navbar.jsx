@@ -21,6 +21,10 @@ const Navbar = () => {
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [isClinicalDropdownOpen, setIsClinicalDropdownOpen] = useState(false);
 
+
+  const { profile } = useAuth();
+
+
   const toggleMenu = () => setIsMenuOpen(!isMenuOpen);
   const toggleDropdown = () => setIsDropdownOpen(!isDropdownOpen);
   const toggleClose = () => setIsMenuOpen(false);
@@ -250,36 +254,51 @@ const Navbar = () => {
                {t('navbar.contact')}
               </Link>
             </li>
+
+
+            {profile && (
+            <li>
+              <Link
+                onClick={closeAllMenus}
+                href="/admin/products/all"
+                className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0    "
+              >
+                {t('navbar.dash')}
+              </Link>
+            </li>
+
+ )}
+
             {/* ... other navigation items ... */}
 
             <li className="nav-item">
               <button className="languages md:mt-[-6px] cursor-pointer bg-transparent  rounded-lg py-1 px-4  text-center text-black     active:scale-110">
                 {locale == "ar" ? (
                   <div className="flex gap-2">
-                    <Link href={asPath} locale="en">
+                    <Link className="bg-black text-white rounded-xl  px-4" href={asPath} locale="en">
                       English
                     </Link>
-                    <Link href={asPath} locale="tr">
+                    <Link  className="bg-black text-white rounded-xl  px-4" href={asPath} locale="tr">
                       Turkish
                     </Link>
                   </div>
                 ) : locale == "tr" ? (
                   <div className="flex gap-2">
-                    <Link className="" href={asPath} locale="en">
+                    <Link  className="bg-black text-white rounded-xl  px-4"  href={asPath} locale="en">
                       English
                     </Link>
 
-                    <Link href={asPath} locale="ar">
+                    <Link  className="bg-black text-white rounded-xl  px-4" href={asPath} locale="ar">
                       Arabic
                     </Link>
                   </div>
                 ) : (
                   <div className="flex gap-2">
-                    <Link className="" href={asPath} locale="ar">
+                    <Link  className="bg-black text-white rounded-xl  px-4"  href={asPath} locale="ar">
                       Arabic
                     </Link>
 
-                    <Link href={asPath} locale="tr">
+                    <Link  className="bg-black text-white rounded-xl  px-4" href={asPath} locale="tr">
                       Turkish
                     </Link>
                   </div>

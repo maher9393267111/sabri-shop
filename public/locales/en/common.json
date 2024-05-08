@@ -7,10 +7,11 @@
     "about" :"AboutUs",
     "contact":"Contact",
     "products":"Products",
-    "gallery" : "Gallery"
+    "gallery" : "Gallery",
+    "dash":"Dashboard"
       }
       ,
-
+      "sectionstitle":"Main Sections",
   "title": "Home",
   "home": "Home",
   "articles": "articles",

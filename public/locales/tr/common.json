@@ -5,10 +5,11 @@
         "about" :"Hakkimizda",
         "contact":"iletişim",
         "products":"urunlerimiz",
-        "gallery" :"Fotoğraf Galerisi"
+        "gallery" :"Fotoğraf Galerisi" ,
+        "dash":"Kontrol Paneli"
           }
           ,
-
+          "sectionstitle":"Ana Bölümler",
     "title": "Home",
     "home": "Anasayfa",
     "articles": "articles",

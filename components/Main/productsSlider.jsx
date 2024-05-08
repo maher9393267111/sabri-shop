@@ -22,7 +22,7 @@ const  {t} = useTranslation()
 
   return (
     <div className=" mx-12 mb-12">
-      <div className="flex  flex-row justify-between items-center">
+      <div className="flex my-6  flex-row justify-between items-center">
         <div>
           {/* <p className="text-base font-medium text-primary">Shop by Category</p> */}
           <h1 className="text-4xl font-bold my-4 arabic">{props?.title ? props?.title : "Best Sellers"}</h1>
@@ -30,7 +30,7 @@ const  {t} = useTranslation()
         <Link href="/products">
           <CustomButton
             title={`${t("allproductstitle") } ->`}
-            containerStyles="px-6 py-2 items-center justify-center border bg-primary border-transparent text-black text-md font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            containerStyles="px-6 arabic py-2 items-center justify-center border bg-primary border-transparent text-black text-md font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           />
         </Link>
       </div>

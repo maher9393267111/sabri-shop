@@ -101,8 +101,6 @@ export default function Index({}) {
       setNews(data);
     };
 
-
-
     const getSliders = async () => {
       //  setPageLoading(true)
 
@@ -117,9 +115,7 @@ export default function Index({}) {
       // setPageLoading(false)
     };
 
-
-
-getSliders()
+    getSliders();
     getFeatures();
 
     getCats();
@@ -130,30 +126,21 @@ getSliders()
   return (
     <Layout dir={router.locale === "ar" ? "rtl" : "ltr"}>
       <div className="scroll-smooth  ">
+        {sliders && sliders?.length > 0 && <BannerSlider data={sliders} />}
 
+        {cats && cats?.length > 0 && (
+          <div className=" mx-4 mt-12 md:mx-8">
+            <CategoryCard title={t("sectionstitle")} data={cats} />
+          </div>
+        )}
 
-{sliders && sliders?.length > 0 &&
-        <BannerSlider data={sliders} />
-}
+        {offers && offers?.length > 0 && (
+          <ProductSlider title={discounttitle} data={offers} />
+        )}
 
-        
-{cats && cats?.length > 0 &&
-        <div className=" mx-4 mt-12 md:mx-8">
-          <CategoryCard data={cats} />
-        </div>
-}
-
-{offers && offers?.length > 0 &&
-        <ProductSlider title={discounttitle} data={offers} />
-
-}
-
-
-{news && news?.length > 0 &&
-        <ProductSlider title={newproductstitle} data={news} />
-}
-
-
+        {news && news?.length > 0 && (
+          <ProductSlider title={newproductstitle} data={news} />
+        )}
 
         {/* <BannerSlider/>
 

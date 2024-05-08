@@ -11,7 +11,21 @@ const CategorySection = (props) => {
 console.log(props?.data ,"SS@@@@@@@@@@@@")
 
   return (
+    <div>
+
+<div className="flex  flex-row justify-between items-center">
+        <div className=" my-6">
+          {/* <p className="text-base font-medium text-primary">Shop by Category</p> */}
+          <h1 className="text-4xl font-bold my-4 arabic">{props?.title ? props?.title : "Best Sellers"}</h1>
+        </div>
+       
+      </div>
+
+   
     <div className=" grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 xl:gap-x-8 mb-8">
+
+
+
       {props?.data.map((category) => (
         <div key={category?.id} className="relative overflow-hidden">
           <div className="">
@@ -37,6 +51,7 @@ console.log(props?.data ,"SS@@@@@@@@@@@@")
           </div>
         </div>
       ))}
+    </div>
     </div>
   );
 };
