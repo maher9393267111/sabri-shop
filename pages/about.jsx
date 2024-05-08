@@ -1,14 +1,18 @@
 import { NextSeo } from "next-seo";
 import Image from "next/image";
 import React from "react";
+import Layout from "@/components/layout";
 
 function Hakkimizda() {
   return (
+    <Layout>
+
+   
     <>
       <NextSeo title="Ayka Chair | Hakkımızda | İnegöl Sandalye" />
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-5 py-8 md:grid-cols-2 md:py-16">
-          <section className="grid gap-4">
+          <section className="grid gap-4 arabic">
             <h1 className="text-4xl font-bold tracking-tight text-rose-600 sm:text-5xl md:text-6xl">
               Hakkımızda
             </h1>
@@ -59,6 +63,8 @@ function Hakkimizda() {
         </div>
       </div>
     </>
+
+    </Layout>
   );
 }
 

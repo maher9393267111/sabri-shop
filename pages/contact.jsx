@@ -1,17 +1,93 @@
-import React from "react";
-import { useForm } from "@formcarry/react";
+import React, {useRef ,useState} from "react";
+
 
 import { CheckCircleIcon } from "@heroicons/react/outline";
 import { NextSeo } from "next-seo";
+import Layout from "@/components/layout";
 
-const FORM_ID = "23333";
-
+import { useAuth } from "@/functions/context";
+import Loader from "@/components/common/Loader";
 function ContactUs() {
-  const { state, submit } = useForm({
-    id: FORM_ID,
-  });
+
+  const {pageLoading, setPageLoading} = useAuth()
+   
+  const nameRef = useRef(null);
+  const mailRef = useRef(null);
+  const mobileRef = useRef(null);
+  const descriptionRef = useRef(null);
+
+  function Submit(e) {
+	e.preventDefault();
+	const formEle = document.querySelector("form");
+	const name = nameRef?.current?.value;
+	const phone = mobileRef?.current?.value;
+	const email = mailRef?.current?.value;
+	const desc = descriptionRef?.current?.value;
+
+	console.log(name, phone, email, desc);
+
+	// pushing data to google sheet
+
+	// const formDatab = new FormData(formEle);
+	const formDatab = formEle;
+	console.log(formDatab, "body");
+
+	
+
+	setPageLoading(true);
+
+	fetch("/api/contact", {
+	  method: "POST",
+	  headers: { "Content-Type": "application/json" },
+
+	  body: JSON.stringify({
+		name: name,
+		email: email,
+		
+		desc:'ارجو التواصل',
+
+		phone: phone,
+		type:"contact"
+	  }),
+	})
+	  .then((res) => res.json())
+	  .then((data) => {
+		setPageLoading(false);
+		console.log(data);
+		alert("شكرا لك سنتواصل معكم قريبا");
+		// clear the form
+		try {
+		  nameRef.current.value = "";
+		  mailRef.current.value = "";
+		  if (mobileRef.current) mobileRef.current.value = "";
+		  descriptionRef.current.value = "";
+		} catch (error) {
+		  console.log(error);
+		}
+	  })
+	  .catch((error) => {
+		setPageLoading(false);
+		console.log(error);
+	  });
+  }
+
+
+
+
+  
+  if(pageLoading ){
+    return <Loader/>
+}
+
+
+
+
+
 
   return (
+    <Layout>
+
+    
     <>
       <NextSeo
         title="itpromax | ITPRO | IT PROMAX | IT PRO MAX"
@@ -47,37 +123,21 @@ function ContactUs() {
           </section>
           <section className="">
             <div className="rounded-lg bg-white p-8 drop-shadow-lg lg:col-span-3 lg:p-12">
-              {state.submitted ? (
-                <div
-                  className="rounded-b border-t-4 border-teal-500 bg-teal-100 px-4 py-3 text-teal-900 shadow-md"
-                  role="alert"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="py-1">
-                      <CheckCircleIcon className="h-8 w-8" />
-                    </div>
-                    <div>
-                      <p className="font-bold">
-                      Your message has been sent successfully.
-                      </p>
-                      <p className="text-sm">
-                      You will be contacted as soon as possible.
-                      </p>
-                    </div>
-                  </div>
-                </div>
-              ) : (
-                <form className="space-y-4" onSubmit={submit}>
+          
+                <form className="space-y-4"  onSubmit={(e) => Submit(e)}>
                   <div>
                     <label className="sr-only" htmlFor="name">
                       Name
                     </label>
                     <input
+                       name="Name"
+                       ref={nameRef}
+                       
                       className="w-full rounded-lg border p-3 text-sm drop-shadow-xl focus-within:outline-none focus:border-rose-600"
                       placeholder="Name"
                       type="text"
                       id="name"
-                      name="name"
+                      
                       required
                     />
                   </div>
@@ -91,8 +151,10 @@ function ContactUs() {
                         placeholder="Email "
                         type="email"
                         id="email"
-                        name="email"
-                        required
+                        name="Email"
+                        ref={mailRef}
+                        required={true}
+                        
                       />
                     </div>
                     <div>
@@ -103,8 +165,10 @@ function ContactUs() {
                         className="w-full rounded-lg border p-3 text-sm drop-shadow-xl focus-within:outline-none focus:border-rose-600"
                         placeholder="Phone Number"
                         type="tel"
-                        id="phone"
-                        name="phone"
+                        id="Phone"
+                        name="Phone"
+                        ref={mobileRef}
+                        required={true}
                       />
                     </div>
                   </div>
@@ -118,8 +182,11 @@ function ContactUs() {
                       rows={8}
                       id="message"
                       name="message"
+                      
+                      ref={descriptionRef}
+                      required={true}
                       defaultValue={""}
-                      required
+                      
                     />
                   </div>
                   <div className="mt-4">
@@ -145,13 +212,14 @@ function ContactUs() {
                     </button>
                   </div>
                 </form>
-              )}
+            
             </div>
           </section>
         </div>
         
       </div>
     </>
+    </Layout>
   );
 }
 

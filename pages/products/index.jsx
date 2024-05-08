@@ -12,9 +12,10 @@ import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 export default function ProductsPage({
   products,
    subcats,
+   subcategory
 
 }) {
-  console.log("ProductsPage" + products);
+  console.log("ProductsPage"  ,subcategory);
 
 
   const router =useRouter()
@@ -30,12 +31,22 @@ export default function ProductsPage({
  
     <div className="scroll-smooth  mx-7">
      
-     {locale === 'ar' ?"ARR" :"EN"}
+
+
+{!subcategory &&
+     <div className="mt-12">
+
+
+     
      {subcats?.length && subcats?.length > 0 &&
 
 <CategoryCard sub={true} data={subcats}/>
 
      }
+
+
+</div>
+}
 
 
 <div>
@@ -44,7 +55,7 @@ export default function ProductsPage({
 
 {products?.length && products?.length > 0 && (
 
-<div className="grid grid-cols-1 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+<div className="grid grid-cols-1 mt-12 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
 
   {products?.map((product ,index)=>{
 return (
@@ -129,6 +140,7 @@ ProductsPage.getInitialProps
     products: products,
     
     subcats:subcats,
+    subcategory:subcategory
    // ...(await serverSideTranslations(context.locale, ["common"])),
 
   //  }

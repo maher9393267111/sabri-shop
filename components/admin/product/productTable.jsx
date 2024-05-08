@@ -134,17 +134,7 @@ const ProductTable = ({ products }) => {
                 </Link>
               </div>
 
-              {record.video ? (
-                <FaVideo
-                  className="hover:text-green-700 text-green-500 cursor-pointer"
-                  size={"25"}
-                />
-              ) : (
-                <FaVideoSlash
-                  className="hover:text-red-700 text-red-500 cursor-pointer"
-                  size={"25"}
-                />
-              )}
+         
             </div>
           </>
         );

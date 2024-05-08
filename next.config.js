@@ -10,7 +10,8 @@ const nextConfig = {
         "firebasestorage.googleapis.com",
         "dr-nahas.vercel.app",
         "marketplace.canva.com",
-        "www.hoponhopoffistanbul.com"
+        "www.hoponhopoffistanbul.com",
+        "images.unsplash.com"
       ],
     },
 

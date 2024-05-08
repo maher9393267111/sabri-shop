@@ -19,13 +19,13 @@ export default function BestSellerSection(props) {
     <div className=" mx-12 mb-12">
       <div className="flex  flex-row justify-between items-center">
         <div>
-          <p className="text-base font-medium text-primary">Shop by Category</p>
-          <h1 className="text-4xl font-bold my-2">Best sellers</h1>
+          {/* <p className="text-base font-medium text-primary">Shop by Category</p> */}
+          <h1 className="text-4xl font-bold my-4 arabic">{props?.title ? props?.title : "Best Sellers"}</h1>
         </div>
-        <Link href="/product">
+        <Link href="/products">
           <CustomButton
             title="Shop All Products ->"
-            containerStyles="px-6 py-2 items-center justify-center border bg-indigo-200 border-transparent text-indigo-700 text-sm font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            containerStyles="px-6 py-2 items-center justify-center border bg-primary border-transparent text-black text-md font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           />
         </Link>
       </div>

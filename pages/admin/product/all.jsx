@@ -1,6 +1,6 @@
 import React from "react";
 import { getDocuments } from "@/functions/firebase/getData";
-import ProductsMain from "@/components/admin/article/articles";
+import ProductsMain from "@/components/admin/product/products";
 const AllProductsPage = ({ products }) => {
   return (
     <div>

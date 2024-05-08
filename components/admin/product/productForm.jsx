@@ -25,11 +25,10 @@ const ProductForm = ({
   cats,
   subcats,
   isupdate = false,
-  videoFile,
-  setVideoFile,
+
 }) => {
   const [images, setImages] = useState(initialValues?.images || []);
-  const [video, setVideo] = useState(initialValues?.video || "");
+ 
   const [offerToggle, setOfferToggle] = useState(initialValues?.isoffer ||false);
 
 
@@ -48,16 +47,20 @@ const ProductForm = ({
             // name of our function
             onFinish({
               ...values,
-              images,
-              video,
+              images
+            
             })
           }
           initialValues={{
             title: initialValues?.title || "",
+            titlear: initialValues?.title || "",
+            titletr: initialValues?.title || "",
             category: initialValues?.category || "",
             subcategory: initialValues?.subcategory || "",
             price: initialValues?.price || 0,
             desc: initialValues?.desc || "",
+            descar: initialValues?.descar || "",
+            desctr: initialValues?.desctr || "",
             instock: initialValues?.instock || true,
             images: initialValues?.images || [],
             video: initialValues?.video || "",
@@ -67,13 +70,47 @@ const ProductForm = ({
 
           }}
         >
-          <Form.Item name="title" label="Add Product - Title">
+
+
+<div className=" grid grid-cols-1 md:grid-cols-3 gap-3">
+<Form.Item name="title" label="English - Title">
             <Input />
           </Form.Item>
 
-          <Form.Item name="desc" label="Description">
+          <Form.Item name="titlear" label="Arabic - Title">
+            <Input />
+          </Form.Item>
+
+          <Form.Item name="titletr" label="Turkish- Title">
+            <Input />
+          </Form.Item>
+
+
+
+</div>
+
+        
+
+
+
+
+          <Form.Item name="desc" label="English Description">
             <TextArea rows={4} />
           </Form.Item>
+
+
+
+          <Form.Item name="descar" label="Arabic Description">
+            <TextArea rows={4} />
+          </Form.Item>
+
+
+          <Form.Item name="desctr" label="Turkish Description">
+            <TextArea rows={4} />
+          </Form.Item>
+
+
+
 
           <div className=" grid gap-3 md:grid-cols-3 lg:grid-cols-4 grid-cols-1">
             {/* -----category--- */}
@@ -205,47 +242,11 @@ const ProductForm = ({
             ))}
           </div>
 
-          {/* -----Video upload----- */}
+        
 
-          <div>
-            <Upload
-              accept="video/*"
-              maxCount={1}
-              // file is data of image will be uploaded to firebase/storage
-              beforeUpload={(file) => {
-                setVideoFile(file);
-                // setFiles((prev) => [...prev, file]);
-                return false;
-              }}
-              listType="picture-card"
-              onRemove={() => setVideoFile("")}
-            >
-              Upload Video
-            </Upload>
-          </div>
+         
 
-          {/* -----Video delete----- */}
-
-          <div className="flex flex-wrap gap-3 mt-2 ">
-            {video ? (
-              <div>
-                <img
-                  src="https://images.unsplash.com/photo-1590856029826-c7a73142bbf1?w=500&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8dmlkZW8lMjBpY29ufGVufDB8fDB8fHww"
-                  className="w-20 h-20 rounded-full "
-                />
-                <h1
-                  onClick={() => {
-                    setVideo("");
-                  }}
-                  className="text-center cursor-pointer text-red-600"
-                >
-                  remove
-                </h1>
-              </div>
-            ) : (
-              false
-            )}
-          </div>
+    
 
           <div className=" ">
             <Button

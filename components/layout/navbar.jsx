@@ -174,10 +174,10 @@ const Navbar = () => {
               >
                 <Link
                   onClick={closeAllMenus}
-                  href="/Services"
+                  href="/products"
                   className=" hover:text-secondary"
                 >
-                  Categories
+                  Products
                 </Link>
                 <svg
                   className="w-2.5 h-2.5 ms-2.5"
@@ -202,17 +202,17 @@ const Navbar = () => {
                   className="absolute z-10 font-normal  divide-y divide-gray-100 rounded-lg shadow w-44 bg-white  dark:divide-gray-600"
                 >
                   <ul
-                    className="py-2 text-sm text-gray-700 dark:text-gray-400"
+                    className="py-2 text-md text-gray-700 dark:text-gray-400"
                     aria-labelledby="dropdownLargeButton"
                   >
                     {combinedData?.map((item, index) => {
                       return (
                         <li key={index} onClick={closeAllMenus}>
                           <Link
-                            href="/Services/PlasticSurgery"
+                            href={`/products?category=${item?.title}`}
                             className="block arabic px-4 py-2 hover:bg-primary "
                           >
-                            Plastic Surgery
+                            {item?.title}
                           </Link>
                         </li>
                       );

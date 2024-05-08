@@ -8,7 +8,7 @@ import { useTranslation } from "next-i18next";
 import Layout from "@/components/layout";
 import BannerSlider from "@/components/Main/BannerSlider";
 import CategoryCard from "@/components/Main/CategoryCard";
-import ProductSlider from '@/components/Main/productsSlider'
+import ProductSlider from "@/components/Main/productsSlider";
 // import Service from "@/components/Main/Services";
 // import SectionOne from "@/components/Main/SectionOne";
 // import Travels from "@/components/Main/Travels";
@@ -25,6 +25,8 @@ export default function Index({}) {
 
   const [cats, setCats] = useState([]);
   const [products, setProducts] = useState([]);
+  const [offers, setOffers] = useState([]);
+  const [news, setNews] = useState([]);
   // const [loacding, setLoading] = useState(true);
   //subcategory"
   useEffect(() => {
@@ -42,9 +44,7 @@ export default function Index({}) {
       // setPageLoading(false)
     };
 
-
-
-    const getProducts= async () => {
+    const getProducts = async () => {
       //  setPageLoading(true)
 
       const data = await getDocumentsOrder(
@@ -60,10 +60,48 @@ export default function Index({}) {
 
 
 
+    const getOffers = async () => {
+      //  setPageLoading(true)
 
+      const data = await getDocumentsOrder(
+        "products",
+        orderBy("timeStamp", "asc"),
+        where("isoffer", "==", true)
+      );
+
+      console.log(data, "fetch PRODUCCCCCCCCCCCC====>>>>");
+      setOffers(data);
+      // setPageLoading(false)
+    };
+
+
+    const getFeatures = async () => {
+      // setLoading(true);
+      
+       setProducts([]);
+       const data = await getDocumentsOrder(
+         "products",
+         orderBy("timeStamp", "asc"),
+         null ,
+         2
+         
+         
+        
+       );
+   
+       console.log(data, "fetch Propertirs 3====>>>>");
+       setNews(data);
+      
+    
+     };
+
+
+
+     getFeatures();
 
     getCats();
     getProducts();
+    getOffers()
   }, []);
 
   return (
@@ -71,13 +109,15 @@ export default function Index({}) {
       <div className="scroll-smooth  ">
         <BannerSlider />
 
-        <CategoryCard data={cats} />
+        {offers?.length}
 
-<ProductSlider data={products}/>
+        <div className=" mx-4 mt-12 md:mx-8">
+          <CategoryCard data={cats} />
+        </div>
 
+        <ProductSlider title ={"Discount Offers"} data={offers} />
 
-<ProductSlider data={products}/>
-
+        <ProductSlider title ={"New products"} data={news} />
 
         {/* <BannerSlider/>
 
