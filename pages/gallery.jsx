@@ -211,3 +211,14 @@ export default function GalleryPage() {
     </MainLayout>
   );
 }
+
+
+export const getStaticProps = async ({ locale }) => {
+  //const allProducts = await api.getAllProducts();
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common"])),
+      // allProducts,
+    },
+  };
+};

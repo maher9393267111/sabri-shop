@@ -21,16 +21,16 @@ const  {t} = useTranslation()
 
 
   return (
-    <div  className=" mx-12 mb-12">
-      <div className="flex my-6  flex-row justify-between items-center">
+    <div dir="ltr"  className=" mx-12 mb-12">
+      <div  className="flex my-6  flex-row justify-between items-center">
         <div>
           {/* <p className="text-base font-medium text-primary">Shop by Category</p> */}
-          <h1 className="text-4xl font-bold my-4 arabic">{props?.title ? props?.title : "Best Sellers"}</h1>
+          <h1 className=" text-xl md:text-4xl font-bold my-4 arabic">{props?.title ? props?.title : "Best Sellers"}</h1>
         </div>
         <Link href="/products">
           <CustomButton
-            title={`${t("allproductstitle") } ->`}
-            containerStyles="px-6 arabic py-2 items-center justify-center border bg-primary border-transparent text-black text-md font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            title={`${t("allproductstitle") }`}
+            containerStyles=" px-3 md:px-6 arabic py-2 items-center justify-center border bg-primary border-transparent text-black text-md md:text-xl font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
           />
         </Link>
       </div>

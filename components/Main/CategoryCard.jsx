@@ -11,13 +11,13 @@ const CategorySection = (props) => {
 console.log(props?.data ,"SS@@@@@@@@@@@@")
 
   return (
-    <div>
+    <div dir="ltr">
       
 
 <div className="flex  flex-row justify-between items-center">
         <div className=" my-6">
           {/* <p className="text-base font-medium text-primary">Shop by Category</p> */}
-          <h1 className="text-4xl font-bold my-4 arabic">{props?.title ? props?.title : "Best Sellers"}</h1>
+          <h1 className=" text-md  md:text-4xl font-bold my-4 arabic">{props?.title ? props?.title : "Best Sellers"}</h1>
         </div>
        
       </div>
