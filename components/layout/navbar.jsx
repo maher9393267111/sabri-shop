@@ -157,13 +157,15 @@ const Navbar = () => {
         className=" bg-primary px-3 arabic py-5 bg-opacity-80 md:bg-opacity-80 sticky top-0 z-50   text-black md:bg-primary font-primary mx-0 mt-0  bg-no-repeat bg-top md:bg-cover md:bg-top"
       >
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
-          <Link className="flex flex-row" href="/">
-            <Image
+          <Link className="flex flex-row shimmer !shadow-2xl" href="/">
+            {/* <Image
               src="https://ik.imagekit.io/m1akscp5q/logo%20bac%20horizontal%20hitam%201.png?updatedAt=1705581337965"
               width={193}
               height={48}
               alt="logo bac"
-            />
+            /> */}
+
+            Tedili Mermer
           </Link>
           <button
             type="button"
