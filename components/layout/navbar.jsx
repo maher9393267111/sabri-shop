@@ -105,20 +105,20 @@ const Navbar = () => {
       {/* headewr-- */}
 
       <div className="container mx-auto lg:flex lg:flex-row  lg:justify-between justify-center items-center space-y-2  text-gray-500 py-3 w-full">
-        <div className="lg:flex lg:flex-row flex flex-col justify-center items-center space-x-12 lg:space-y-0 space-y-2">
+        <div className="lg:flex lg:flex-row flex flex-col justify-center items-baseline md:items-center space-x-12 lg:space-y-0 space-y-2">
           <div className="flex flex-row space-x-2">
             <FaMapMarkerAlt className="w-5 h-5 text-gray-500" />
-            <p>ANKARA-AFYON KARAYOLU 
-               {/* No:7 03750 İscehisar/ Afyon */}
+            <p> 
+               {locale === 'ar' ? 'تركيا-افيون' : 'TÜRKİYE-AFYONKARAHİSAR'}
                </p>
           </div>
           <div className="flex flex-row space-x-2">
             <FaMobileAlt className="w-5 h-5 text-gray-500" />
-            <p> (+90)5385809972</p>
+            <p>00905379732131</p>
           </div>
           <div className="flex flex-row space-x-2">
             <FaRegClock className="w-5 h-5 arabic text-gray-500" />
-            <p className="arabic">الاثنين-السبت: 07:00 - 17:00</p>
+            <p className="arabic">السبت-الخميس: 08:00 - 6:00</p>
           </div>
         </div>
         <div className="flex flex-row space-x-4  justify-center items-center ">

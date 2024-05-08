@@ -112,7 +112,7 @@ const router =useRouter()
               href="https://maps.app.goo.gl/aVHAza3KnaQqYdfy6"
             >
               <strong>{t("address")}:</strong> 
-             
+              ESKİ HAMAM MAH.ANKARA-AFYON KARAYOLU  No:7/2 İscehisar/ Afyonkarahisar
             </a>
           </p>
         </section>
