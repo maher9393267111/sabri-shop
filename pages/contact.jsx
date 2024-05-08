@@ -97,8 +97,8 @@ const router =useRouter()
     
     <>
       <NextSeo
-        title="itpromax | ITPRO | IT PROMAX | IT PRO MAX"
-        description="ITPROMAX is a small business "
+        title="Tedili Mermer | Tedili | Tedili | Tedili Mermer"
+        description="Tedili Mermer"
       />
       <div className="mx-auto arabic max-w-7xl px-6 py-8  sm:px-6 md:py-16 lg:px-8">
         <section dir={router?.locale === 'ar' && 'rtl'}>
