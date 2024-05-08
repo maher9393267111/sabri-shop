@@ -2,9 +2,11 @@ import React from "react";
 import Image from "next/image";
 import CustomButton from "./customButton";
 import Link from "next/link";
+import {useRouter} from 'next/router'
 
 const CategorySection = (props) => {
 
+  const router =useRouter()
 
 console.log(props?.data ,"SS@@@@@@@@@@@@")
 
@@ -28,8 +30,8 @@ console.log(props?.data ,"SS@@@@@@@@@@@@")
             </div> */}
             <Link href={`/products?${!props?.sub ? 'category'  : 'subcategory'}=${category?.title}`}>
               <CustomButton
-                title= {`${category?.title} ->`} //"Shop Now ->"
-                containerStyles="px-6 py-2 mt-12 items-center justify-center border bg-primary border-primary text-black text-lg font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+                title= {`${ router.locale === 'ar' ? category?.titlear : router.locale === 'en' ? category?.title : category?.titletr} ->`} //"Shop Now ->"
+                containerStyles="px-6 arabic py-2 mt-12 items-center justify-center border bg-primary border-primary text-black text-lg font-medium hover:bg-indigo-100 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
               />
             </Link>
           </div>

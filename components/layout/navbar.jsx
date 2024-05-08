@@ -234,7 +234,7 @@ const Navbar = () => {
             <li>
               <Link
                 onClick={closeAllMenus}
-                href="/Promo"
+                href="/gallery"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0     "
               >
                 {t('navbar.gallery')}
@@ -247,7 +247,7 @@ const Navbar = () => {
                 href="/contact"
                 className="block py-2 px-3 text-gray-900 rounded hover:bg-gray-100 md:hover:bg-transparent md:hover:text-secondary md:p-0  "
               >
-               {t('navbar.gallery')}
+               {t('navbar.contact')}
               </Link>
             </li>
             {/* ... other navigation items ... */}

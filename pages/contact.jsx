@@ -9,11 +9,12 @@ import { useAuth } from "@/functions/context";
 import Loader from "@/components/common/Loader";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "react-i18next";
+import {useRouter} from 'next/router'
 function ContactUs() {
 
 
   const { t } = useTranslation("common");
-
+const router =useRouter()
 
   const {pageLoading, setPageLoading} = useAuth()
    
@@ -99,18 +100,18 @@ function ContactUs() {
         title="itpromax | ITPRO | IT PROMAX | IT PRO MAX"
         description="ITPROMAX is a small business "
       />
-      <div className="mx-auto arabic max-w-7xl px-4 py-8 sm:px-6 md:py-16 lg:px-8">
-        <section>
-          <h1 className="text-4xl arabic font-bold tracking-tight text-rose-600 sm:text-5xl md:text-6xl">
+      <div className="mx-auto arabic max-w-7xl px-6 py-8  sm:px-6 md:py-16 lg:px-8">
+        <section dir={router?.locale === 'ar' && 'rtl'}>
+          <h1 className="text-4xl arabic font-bold tracking-tight shimmer sm:text-5xl md:text-6xl">
           {t("contactus")}
           </h1>
-          <p className="my-4 text-lg duration-200 hover:text-rose-600 md:justify-start">
+          <p className="my-4 text-lg duration-200 hover:shimmer md:justify-start">
             <a
               target={"_blank"}
               rel="noopener noreferrer"
               href="https://maps.app.goo.gl/aVHAza3KnaQqYdfy6"
             >
-              <strong>{t("address")}:</strong> Lebanon, Beirut - Hamra Street
+              <strong>{t("address")}:</strong> Istanbul, Turkey - Alfatih Street
             </a>
           </p>
         </section>

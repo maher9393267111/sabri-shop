@@ -15,19 +15,27 @@ import {
 } from "antd";
 const { TextArea } = Input;
 
-
 import Image from "next/image";
 
-
-const CategoryForm = ({
+const SliderForm = ({
   onFinish,
-  initialValues,
   file,
   setFile,
   isupdate = false,
+  initialValues,
 }) => {
   const [image, setImage] = useState(initialValues?.image || "");
 
+  console.log(initialValues, "initialllll");
+
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
+
+    console.log(selectedCategory);
+  };
+
+  //   onChange={handleCategoryChange}
 
   return (
     <div className=" w-[80%] mx-auto ">
@@ -49,26 +57,21 @@ const CategoryForm = ({
             image: initialValues?.image || "",
           }}
         >
-          <Form.Item name="title" label="English Category Title">
+          <Form.Item name="title" label="English Sub Category Title ">
             <Input />
           </Form.Item>
 
-          <Form.Item name="titlear" label="Arabic Category Title">
+          <Form.Item name="titlear" label="Arabic Sub Category Title ">
             <Input />
           </Form.Item>
 
-          <Form.Item name="titletr" label="Turkish Category Title">
+          <Form.Item name="titletr" label="Turkish Sub Category Title ">
             <Input />
           </Form.Item>
-
-
-
 
           <div className=" grid gap-3 md:grid-cols-4 grid-cols-1"></div>
 
-
           {/* -----images upload----- */}
-
 
           <div>
             <Upload
@@ -87,14 +90,11 @@ const CategoryForm = ({
             </Upload>
           </div>
 
-
           {/* -----show category image {update category} ---- */}
-
 
           {image && (
             <div className="  w-24 md:w-24 relative">
               <img className=" w-24 h-24  rounded-lg" src={image} alt="" />
-
 
               <p
                 onClick={() => setImage("")}
@@ -104,7 +104,6 @@ const CategoryForm = ({
               </p>
             </div>
           )}
-
 
           <div className=" ">
             <Button
@@ -121,7 +120,4 @@ const CategoryForm = ({
   );
 };
 
-
-export default CategoryForm;
-
-
+export default SliderForm;

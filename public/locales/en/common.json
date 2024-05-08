@@ -4,7 +4,7 @@
 
   "navbar":{
     "home":"Home",
-    "about" :"About",
+    "about" :"AboutUs",
     "contact":"Contact",
     "products":"Products",
     "gallery" : "Gallery"
@@ -27,8 +27,10 @@
   "email": "email",
   "send": "Send",
   "address":"address",
-  "allproductstitle": "Tüm ürünler",
+  "allproductstitle": "All Products",
   "contactus": "ContactUs",
+  "aboutdesc":"The main aim of our company is to follow the developments in the world and in our country by being open to innovation and development in the sector, and to ensure that the products that have developed the production with modern production techniques most suitable for the Turkish and world markets, take the place they deserve in our country and in the world with an effective sales network and maintain this superiority.Our company considers the technology, investment, marketing, operation plans and policies and production budget programs that it adopts and implements in order to realize this main goal, as tools of this main goal.",
+
   "services": {
     "title1": "Safety First",
     "desc1": "Experienced staff and professionally trained chauffeurs",

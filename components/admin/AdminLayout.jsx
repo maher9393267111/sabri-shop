@@ -23,9 +23,10 @@ const AdminLayout = ({ children }) => {
     { id: 4, text: "All Products", path: "/admin/product/all" },
     { id: 5, text: "Add SubCategory", path: "/admin/subcategory/add" },
     { id: 6, text: "All SubCategories", path: "/admin/subcategory/all" },
-    { id: 7, text: "Add Article", path: "/admin/article/add" },
-    { id: 8, text: "All Articles", path: "/admin/article/all" },
-  
+    // { id: 7, text: "Add Article", path: "/admin/article/add" },
+    // { id: 8, text: "All Articles", path: "/admin/article/all" },
+    { id: 9, text: "Add Sliders", path: "/admin/slider/add" },
+    { id: 10, text: "All Sliders", path: "/admin/slider/all" },
 
   ];
 

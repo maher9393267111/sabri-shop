@@ -25,17 +25,31 @@ const ProductForm = ({
   cats,
   subcats,
   isupdate = false,
-
 }) => {
   const [images, setImages] = useState(initialValues?.images || []);
- 
-  const [offerToggle, setOfferToggle] = useState(initialValues?.isoffer ||false);
 
+  const [offerToggle, setOfferToggle] = useState(
+    initialValues?.isoffer || false
+  );
 
   const onChange = (checked) => {
     setOfferToggle(checked);
-    
-};
+  };
+
+
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
+
+    console.log(selectedCategory)
+
+
+  };
+
+
+  //   onChange={handleCategoryChange}
+
+
 
   return (
     <div className=" w-[80%] mx-auto ">
@@ -47,8 +61,7 @@ const ProductForm = ({
             // name of our function
             onFinish({
               ...values,
-              images
-            
+              images,
             })
           }
           initialValues={{
@@ -67,55 +80,38 @@ const ProductForm = ({
             isoffer: initialValues?.isoffer || false,
             discount: initialValues?.discount || 0,
             offerdesc: initialValues?.offerdesc || "",
-
           }}
         >
+          <div className=" grid grid-cols-1 md:grid-cols-3 gap-3">
+            <Form.Item name="title" label="English - Title">
+              <Input />
+            </Form.Item>
 
+            <Form.Item name="titlear" label="Arabic - Title">
+              <Input />
+            </Form.Item>
 
-<div className=" grid grid-cols-1 md:grid-cols-3 gap-3">
-<Form.Item name="title" label="English - Title">
-            <Input />
-          </Form.Item>
-
-          <Form.Item name="titlear" label="Arabic - Title">
-            <Input />
-          </Form.Item>
-
-          <Form.Item name="titletr" label="Turkish- Title">
-            <Input />
-          </Form.Item>
-
-
-
-</div>
-
-        
-
-
-
+            <Form.Item name="titletr" label="Turkish- Title">
+              <Input />
+            </Form.Item>
+          </div>
 
           <Form.Item name="desc" label="English Description">
             <TextArea rows={4} />
           </Form.Item>
 
-
-
           <Form.Item name="descar" label="Arabic Description">
             <TextArea rows={4} />
           </Form.Item>
-
 
           <Form.Item name="desctr" label="Turkish Description">
             <TextArea rows={4} />
           </Form.Item>
 
-
-
-
           <div className=" grid gap-3 md:grid-cols-3 lg:grid-cols-4 grid-cols-1">
             {/* -----category--- */}
             <Form.Item name="category" label="category">
-              <Select placeholder="Select Category">
+              <Select  onChange={handleCategoryChange} placeholder="Select Category">
                 {cats?.map((category) => {
                   return (
                     <Select.Option key={category?.id} value={category?.title}>
@@ -129,7 +125,9 @@ const ProductForm = ({
             {/* -----subcategory--- */}
             <Form.Item name="subcategory" label="subcategory">
               <Select placeholder="Select SubCategory">
-                {subcats?.map((subcat) => {
+                {subcats?.filter(
+    (subcategory) => subcategory.category === selectedCategory
+  ).map((subcat) => {
                   return (
                     <Select.Option key={subcat?.id} value={subcat?.title}>
                       {subcat?.title}
@@ -156,37 +154,37 @@ const ProductForm = ({
                 />
               </Form.Item>
 
-                            {/* ----isoffer----- */}
+              {/* ----isoffer----- */}
 
-                            <Form.Item name="isoffer" label="IsOffer">
-                <Switch 
+              <Form.Item name="isoffer" label="IsOffer">
+                <Switch
                   checked={offerToggle}
                   // defaultChecked
                   className=" bg-red-400 "
                   onChange={onChange}
                 />
               </Form.Item>
-
-
             </div>
           </div>
-                {offerToggle ? 
+          {offerToggle ? (
+            <div className="flex-col flex md:flex-row md:gap-12 ">
+              {/* ----offerDesciption--- */}
 
-                <div className="flex-col flex md:flex-row md:gap-12 ">
-                          {/* ----offerDesciption--- */}
-
-                <Form.Item  className="md:w-[70%]" name="offerdesc" label="OfferDesc">
+              <Form.Item
+                className="md:w-[70%]"
+                name="offerdesc"
+                label="OfferDesc"
+              >
                 <TextArea rows={2} />
-                </Form.Item>
+              </Form.Item>
 
-                              {/* ----Discount--- */}
+              {/* ----Discount--- */}
 
               <Form.Item name="discount" label="Discount">
                 <InputNumber min={0} />
               </Form.Item>
-
-                </div>
-                 : null } 
+            </div>
+          ) : null}
 
           {/* -----images upload----- */}
 
@@ -241,12 +239,6 @@ const ProductForm = ({
               </div>
             ))}
           </div>
-
-        
-
-         
-
-    
 
           <div className=" ">
             <Button

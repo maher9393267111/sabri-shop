@@ -3,9 +3,16 @@ import Image from "next/image";
 import React from "react";
 import Layout from "@/components/layout";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+
 import { useTranslation } from "react-i18next";
+import {useRouter} from 'next/router'
 function Hakkimizda() {
   const { t } = useTranslation("common");
+const router = useRouter()
+
+
+
+
   return (
     <Layout>
 
@@ -15,24 +22,34 @@ function Hakkimizda() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 gap-5 py-8 md:grid-cols-2 md:py-16">
           <section className="grid gap-4 arabic">
-            <h1 className="text-4xl font-bold tracking-tight text-rose-600 sm:text-5xl md:text-6xl">
-              Hakkımızda
+            <h1 dir={router?.locale === 'ar' && 'rtl'} className="text-4xl font-bold tracking-tight shimmer sm:text-5xl md:text-6xl">
+              {t("navbar.about")}
             </h1>
-            <article className="grid gap-2">
-              <p>
-                Firmamızın ana gayesi,sektöründe yenilik ve gelişmeye açık
+            <article dir={router?.locale === 'ar' && 'rtl'} className="grid gap-2">
+              <p className="arabic text-[17px] sm:text-xl">
+
+
+
+{t("aboutdesc")}
+
+                {/* Firmamızın ana gayesi,sektöründe yenilik ve gelişmeye açık
                 olarak dünyada ve ülkemizde gelişmeleri izleyerek, hitap ettiği
                 Türk ve dünya pazarına en uygun modern üretim teknikleri ile
                 imalatı geliştirmiş olan ürünlerin, etkin bir satış ağıyla
                 ülkemizde ve dünyada hakettiği yeri alması ve bu üstünlüğü
-                muhafaza etmesidir.
+                muhafaza etmesidir. */}
               </p>
-              <p>
+              {/* <p>
                 Şirketimiz,benimsediği bu ana gayesinin gerçekleşebilmesi için
                 ele alıp uyguladığı teknoloji, yatırım, pazarlama,operasyon
                 planları ve politikaları ile üretim bütçe programlarını,bu ana
                 gayenin birer aracı saymaktadır.
-              </p>
+              </p> */}
+
+
+
+
+{/* 
               <h2 className="text-2xl font-bold text-rose-600">
                 Ayka Chair olarak kalite politikamız;
               </h2>
@@ -47,10 +64,13 @@ function Hakkimizda() {
                 Uluslararası kalite standartlarını hayata geçirmek kalite
                 perspektifimizi kurumsal hale getirmek, müşterilerimize
                 verdiğimiz kalite taahhüdünü yerine getirmektir.
-              </p>
+              </p> */}
+
+
+
             </article>
           </section>
-          <section className="shadow_image_left relative order-first h-64 md:order-none md:h-full">
+          <section className="shadow_image_left rounded-md relative order-first h-[355px] md:min-h-[355px] md:order-none md:h-full">
             <Image
               className="absolute"
               src={

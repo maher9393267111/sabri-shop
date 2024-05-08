@@ -30,7 +30,21 @@ const SubCategoryForm = ({
   const [image, setImage] = useState(initialValues?.image || "");
   
   
-  console.log(initialValues,"initialllll") 
+  console.log(initialValues,"initialllll")
+  
+  const [selectedCategory, setSelectedCategory] = useState(null);
+  const handleCategoryChange = (value) => {
+    setSelectedCategory(value);
+
+    console.log(selectedCategory)
+
+
+  };
+
+
+  //   onChange={handleCategoryChange}
+
+
 
   return (
     <div className=" w-[80%] mx-auto ">
@@ -47,17 +61,37 @@ const SubCategoryForm = ({
           }
           initialValues={{
             title: initialValues?.title || "",
+            titlear: initialValues?.titlear || "",
+            titletr: initialValues?.titletr || "",
             image: initialValues?.image || "",
             category: initialValues?.category || "",
           }}
         >
-          <Form.Item name="title" label="Add Sub Category Title ">
+
+
+
+          <Form.Item name="title" label="English Sub Category Title ">
+            <Input />
+          </Form.Item>
+
+          <Form.Item name="titlear" label="Arabic Sub Category Title ">
+            <Input />
+          </Form.Item>
+
+          <Form.Item name="titletr" label="Turkish Sub Category Title ">
             <Input />
           </Form.Item>
 
 
+
+
+
           <Form.Item name="category" label="category">
-              <Select placeholder="Select Category">
+              <Select
+              
+             onChange={handleCategoryChange}
+              
+              placeholder="Select Category">
                 {cats?.map((category) => {
                   return (
                     <Select.Option key={category?.id} value={category?.title}>
@@ -69,6 +103,9 @@ const SubCategoryForm = ({
             </Form.Item>
 
           <div className=" grid gap-3 md:grid-cols-4 grid-cols-1"></div>
+
+
+
 
 
           {/* -----images upload----- */}

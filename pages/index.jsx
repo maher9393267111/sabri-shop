@@ -40,6 +40,7 @@ export default function Index({}) {
   const [products, setProducts] = useState([]);
   const [offers, setOffers] = useState([]);
   const [news, setNews] = useState([]);
+  const [sliders, setSliders] = useState([]);
   // const [loacding, setLoading] = useState(true);
   //subcategory"
   useEffect(() => {
@@ -100,6 +101,25 @@ export default function Index({}) {
       setNews(data);
     };
 
+
+
+    const getSliders = async () => {
+      //  setPageLoading(true)
+
+      const data = await getDocumentsOrder(
+        "slider",
+        orderBy("timeStamp", "asc"),
+        null
+      );
+
+      console.log(data, "fetch cats ====>>>>");
+      setSliders(data);
+      // setPageLoading(false)
+    };
+
+
+
+getSliders()
     getFeatures();
 
     getCats();
@@ -110,17 +130,30 @@ export default function Index({}) {
   return (
     <Layout dir={router.locale === "ar" ? "rtl" : "ltr"}>
       <div className="scroll-smooth  ">
-        <BannerSlider />
 
-        {offers?.length}
 
+{sliders && sliders?.length > 0 &&
+        <BannerSlider data={sliders} />
+}
+
+        
+{cats && cats?.length > 0 &&
         <div className=" mx-4 mt-12 md:mx-8">
           <CategoryCard data={cats} />
         </div>
+}
 
+{offers && offers?.length > 0 &&
         <ProductSlider title={discounttitle} data={offers} />
 
+}
+
+
+{news && news?.length > 0 &&
         <ProductSlider title={newproductstitle} data={news} />
+}
+
+
 
         {/* <BannerSlider/>
 
