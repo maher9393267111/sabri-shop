@@ -14,13 +14,13 @@ const EditSliderPage = ({subcat}) => {
 }
 
 
-export default EditSubPage;
+export default EditSliderPage;
 
 
 
 
 // serverside
-EditSubPage.getInitialProps = async (context) => {
+EditSliderPage.getInitialProps = async (context) => {
     
     const subcat = await getDocument("slider", context.query.id);
     

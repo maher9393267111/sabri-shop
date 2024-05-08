@@ -1,7 +1,7 @@
 import React from "react";
 import SubCategoriesMain from "@/components/admin/slider/sliders";
 import { getDocuments } from "@/functions/firebase/getData";
-const AllSubssPage = ({ subcats }) => {
+const AllSlidersPage = ({ subcats }) => {
   return (
     <div>
       <SubCategoriesMain subcats={subcats} />
@@ -9,10 +9,10 @@ const AllSubssPage = ({ subcats }) => {
   );
 };
 
-export default AllSubssPage;
+export default AllSlidersPage;
 
 // serverside
-AllSubssPage.getInitialProps = async (context) => {
+AllSlidersPage.getInitialProps = async (context) => {
   const SubCategories = await getDocuments("subcats"); //  []
 
   console.log("data💡", SubCategories);
