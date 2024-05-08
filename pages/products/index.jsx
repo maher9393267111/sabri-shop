@@ -47,7 +47,7 @@ export default function ProductsPage({ }) {
      
         category
           ? where("category", "==", category)
-          : subcategory
+          : subcategorydata
           ? where("subcategory", "==", subcategorydata)
           : null
       );
@@ -86,12 +86,12 @@ if (pageLoading )
         {!subcategorydata  && (
           <div className="mt-12">
             {subcats?.length && subcats?.length > 0 && (
-              <CategoryCard sub={true} data={subcats} />
+              <CategoryCard title={t("subsectionstitle")} sub={true} data={subcats} />
             )}
           </div>
         )}
 
-        <div></div>
+        <div className="mb-16">
 
         {products?.length && products?.length > 0 && (
           <div className="grid grid-cols-1 mt-12 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
@@ -100,6 +100,10 @@ if (pageLoading )
             })}
           </div>
         )}
+
+</div>
+
+
       </div>
     </Layout>
   );
