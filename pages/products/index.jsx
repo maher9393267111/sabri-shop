@@ -102,9 +102,9 @@ export const getServerSideProps = async (context) => {
   return {
     props: {
       // props from serverside will go to props in clientside
-      products: productss,
+      products: products ? productss : [],
 
-      subcats: subcatss,
+      subcats: subcats ? subcatss : [],
       subcategory: subcategory ? subcategory : null,
       // ...(await serverSideTranslations(context.locale, ["common"])),
     },
