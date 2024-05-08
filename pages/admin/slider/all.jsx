@@ -13,7 +13,7 @@ export default AllSlidersPage;
 
 // serverside
 AllSlidersPage.getInitialProps = async (context) => {
-  const SubCategories = await getDocuments("subcats"); //  []
+  const SubCategories = await getDocuments("slider"); //  []
 
   console.log("data💡", SubCategories);
 

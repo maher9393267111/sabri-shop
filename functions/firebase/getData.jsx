@@ -160,7 +160,7 @@ export const handleDeleteGlobal = (col, item) => {
   const itemDoc = doc(db, col, item.id);
   // delete document from firestore then delete document images
   deleteDoc(itemDoc).then(async () => {
-    if (item.image  ) {
+    if (item.image) {
     await deleteImage(item?.image);
     message.success("Image deleted successfully");
     }

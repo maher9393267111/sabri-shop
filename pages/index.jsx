@@ -125,7 +125,7 @@ export default function Index({}) {
 
   return (
     <Layout dir={router.locale === "ar" ? "rtl" : "ltr"}>
-      <div className="scroll-smooth  ">
+      <div className="scroll-smooth mb-16  ">
         {sliders && sliders?.length > 0 && <BannerSlider data={sliders} />}
 
         {cats && cats?.length > 0 && (

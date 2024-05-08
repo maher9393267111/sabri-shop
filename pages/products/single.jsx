@@ -10,6 +10,7 @@ import {useState ,useEffect} from 'react'
 import { useAuth } from "@/functions/context";
 import Loader from "@/components/common/Loader";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
+import { useTranslation } from "react-i18next";
 
 const NFT = ({}) => {
 
@@ -19,6 +20,7 @@ const [product, setProduct] = useState({});
 console.log("🎭🎭🎭>", product.title);
 //  const [loacding, setLoading] = useState(false);
 const {pageLoading, setPageLoading} = useAuth()
+const {t}= useTranslation()
 
 const router = useRouter();
 const locale = router.locale;
@@ -123,23 +125,25 @@ if (!product ){
 <div className="inline-flex rounded-md shadow">
     
       <p className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-base font-medium text-black ">
-        250$
+        {product?.price}$
       </p>
     
   </div>
 
   
   <div className="inline-flex rounded-md shadow">
-    <Link legacyBehavior href="/iletisim">
-      <a className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-base font-medium text-black ">
-        Teklif Al
+ 
+      <a
+      href="https://wtspee.com/9055379732131" target="_blank"
+      className="inline-flex items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-base font-medium text-black ">
+      {t('whatsapptitle')}
       </a>
-    </Link>
+    
   </div>
   <div className="ml-3 inline-flex rounded-md shadow">
-    <Link legacyBehavior href="/magaza">
+    <Link legacyBehavior href="/products">
       <a className="inline-flex items-center justify-center rounded-md border border-transparent bg-white px-5 py-3 text-base font-medium text-rose-600 hover:bg-rose-50">
-        Mağaza
+        {t('shopgo')}
       </a>
     </Link>
   </div>

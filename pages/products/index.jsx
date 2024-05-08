@@ -81,10 +81,10 @@ if (pageLoading )
 
   return (
     <Layout>
-      {subcategorydata}
+      
       <div className="scroll-smooth  mx-7">
         {!subcategorydata  && (
-          <div className="mt-12">
+          <div dir={locale === 'ar' && 'rtl'} className="mt-12">
             {subcats?.length && subcats?.length > 0 && (
               <CategoryCard title={t("subsectionstitle")} sub={true} data={subcats} />
             )}
@@ -93,18 +93,30 @@ if (pageLoading )
 
         <div className="mb-16">
 
-        {products?.length && products?.length > 0 && (
+        {products?.length && products?.length > 0 ? (
           <div className="grid grid-cols-1 mt-12 gap-y-10 gap-x-6 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
             {products?.map((product, index) => {
               return <ProductCard {...product} key={product?.id} />;
             })}
           </div>
-        )}
+        )
+        :
+        
+        <div className=" text-center text-3xl   font-semibold text-red-500 arabic my-28">
+          No Products Found
+        </div>
+
+
+        
+        }
 
 </div>
 
 
       </div>
+
+
+
     </Layout>
   );
 }
