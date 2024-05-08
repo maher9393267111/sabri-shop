@@ -48,7 +48,7 @@ const Banner = ({ data}) => {
   >
     {data?.map((item) => (
       <SwiperSlide key={data.id}>
-        <div key={data.id} className="relative !bg-black !opacity-75 overflow-hidden">
+        <div key={data.id} className="relative !bg-black !opaci-[0.9] overflow-hidden">
           <div className="">
             <Image
               src={item?.image}
@@ -59,7 +59,11 @@ const Banner = ({ data}) => {
             />
             <div className="absolute top-0 left-0 h-full w-full bg-black opacity-70"></div>
           </div>
+          <div className="hero-overlay ">
+
+</div>
           <div className="absolute top-24 left-24 z-10">
+          
             <div dir={router.locale === 'ar' && 'rtl'} className="text-xl arabic md:text-3xl font-bold capitalize w-[70%] shimmer my-5">
               {router.locale === 'ar' ? item?.titlear : router.locale === 'en' ? item?.title : item?.titletr}
             </div>
