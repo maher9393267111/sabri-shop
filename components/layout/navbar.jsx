@@ -129,7 +129,7 @@ const Navbar = () => {
           >
             <FaFacebook className="w-6 h-6 text-gray-500" />
           </a> */}
-
+{/* 
           <a href="https://www.instagram.com/tedili.mermer?igsh=MWJ4cnQzMzBlbjJqag%3D%3D" target="_blank">
             <FaInstagram className="w-6 h-6 text-gray-500" />
 
@@ -138,7 +138,7 @@ const Navbar = () => {
 
           <a href="https://wtspee.com/905379732131" target="_blank">
             <FaWhatsapp className="w-6 h-6 text-gray-500" />
-          </a>
+          </a> */}
 
     
 
