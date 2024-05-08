@@ -1,7 +1,7 @@
 import React from "react";
 import { getDocuments } from "@/functions/firebase/getData";
 import AddSubCategoryMain from "@/components/admin/gallery/AddGallery";
-const AddSliderPage = ({ }) => {
+const AddGalleryPage = ({ }) => {
   return (
     <div>
       <AddSubCategoryMain 
@@ -12,7 +12,7 @@ const AddSliderPage = ({ }) => {
 };
 
 
-export default AddSliderPage;
+export default AddGalleryPage;
 
 
 // serverside

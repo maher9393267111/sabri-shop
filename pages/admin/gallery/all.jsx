@@ -1,7 +1,7 @@
 import React from "react";
 import SubCategoriesMain from "@/components/admin/gallery/galleries";
 import { getDocuments } from "@/functions/firebase/getData";
-const AllSubsPage = ({ subcats }) => {
+const AllGalleryPage = ({ subcats }) => {
   return (
     <div>
       <SubCategoriesMain subcats={subcats} />
@@ -9,10 +9,10 @@ const AllSubsPage = ({ subcats }) => {
   );
 };
 
-export default AllSubsPage;
+export default AllGalleryPage;
 
 // serverside
-AllSubsPage.getInitialProps = async (context) => {
+AllGalleryPage.getInitialProps = async (context) => {
   const SubCategories = await getDocuments("gallery"); //  []
 
   console.log("data💡", SubCategories);

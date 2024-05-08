@@ -1,7 +1,7 @@
 import React from 'react';
 import  UpdateSubCategoryMain from '@/components/admin/gallery/updaGallery';
 import { getDocuments,getDocument } from '@/functions/firebase/getData';
-const EditSliderPage = ({subcat}) => {
+const EditGalleryPage = ({subcat}) => {
     return (
         <div>
             <UpdateSubCategoryMain 
@@ -14,17 +14,17 @@ const EditSliderPage = ({subcat}) => {
 }
 
 
-export default EditSubPage;
+export default EditGalleryPage;
 
 
 
 
 // serverside
-EditSubPage.getInitialProps = async (context) => {
+EditGalleryPage.getInitialProps = async (context) => {
     
     const subcat = await getDocument("gallery", context.query.id);
     
-    console.log("data", Categories);
+    console.log("data");
  
     return {
    
