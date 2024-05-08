@@ -9,11 +9,11 @@ import {
 const SocialButtons = () => {
   const socials = [
 
-    {
-      name: 'Facebook',
-      icon: <FaFacebookF />,
-      link: 'https://www.facebook.com/profile.php?id=100083511842889&mibextid=ZbWKwL',
-    },
+    // {
+    //   name: 'Facebook',
+    //   icon: <FaFacebookF />,
+    //   link: 'https://www.facebook.com/profile.php?id=100083511842889&mibextid=ZbWKwL',
+    // },
     {
       name: 'Whatsapp',
       icon: <FaWhatsapp />,

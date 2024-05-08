@@ -122,12 +122,12 @@ const Navbar = () => {
           </div>
         </div>
         <div className="flex flex-row space-x-4  justify-center items-center ">
-          <a
+          {/* <a
             href="https://www.facebook.com/profile.php?id=100083511842889&mibextid=ZbWKwL"
             target="_blank"
           >
             <FaFacebook className="w-6 h-6 text-gray-500" />
-          </a>
+          </a> */}
 
           <a href="https://www.instagram.com/tedili.mermer?igsh=MWJ4cnQzMzBlbjJqag%3D%3D" target="_blank">
             <FaInstagram className="w-6 h-6 text-gray-500" />
