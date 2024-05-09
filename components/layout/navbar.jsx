@@ -182,6 +182,10 @@ const Navbar = () => {
         className="   bg-black bg-yelow-100 px-3 arabic py-5 bg-opacity-80 md:bg-opacity-80 sticky top-0 z-50   text-black md:bg-primar font-primary mx-0 mt-0  bg-no-repeat bg-top md:bg-cover md:bg-top"
       >
         <div className="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto">
+
+<div className="flex gap-3 items-center">
+
+
           <Link className="flex flex-row shimmer !shadow-2xl" href="/">
             <Image
             className=" object-cover"
@@ -195,10 +199,24 @@ const Navbar = () => {
        
           </Link>
 
-<div className="md:hidden arabic shimmer text-3xl ">
 
-Tedili Mermer
+
+          <div className=" arabic shimmer text-2xl ">
+
+TEDILI MERMER
 </div>
+
+
+</div>
+
+
+{/* <div className="md:hidden arabic shimmer text-3xl ">
+
+TEDILI MERMER
+</div> */}
+
+
+
 
 
           <button
