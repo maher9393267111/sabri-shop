@@ -19,7 +19,7 @@ const AllGalleryPage = ({}) => {
       setPageLoading(true);
       
       const data = await getDocumentsOrder(
-        "slider",
+        "gallery",
         orderBy("timeStamp", "asc")
       );
 
