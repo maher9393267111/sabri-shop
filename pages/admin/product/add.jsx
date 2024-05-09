@@ -2,12 +2,14 @@ import React, { useState, useEffect } from "react";
 import { Input, Box, Button, Stack } from "@chakra-ui/react";
 import AddProductMain from "@/components/admin/product/addProduct";
 import { getDocuments, getDocumentsOrder } from "@/functions/firebase/getData";
+import { orderBy } from "@firebase/firestore";
 import Loader from "@/components/common/Loader";
 
 const AddProductPage = ({}) => {
   const [products, setProducts] = useState([]);
   const [subcats, setsubCats] = useState([]);
-  const [subcategory, setSubCategory] = useState(null);
+  const [cats, setCats] = useState([]);
+  
   const [pageLoading, setPageLoading] = useState(true);
 
   useEffect(() => {
@@ -22,6 +24,15 @@ const AddProductPage = ({}) => {
         null
       );
 
+      const categorydata = await getDocumentsOrder(
+        "cats",
+        orderBy("timeStamp", "asc"),
+
+        null
+      );
+
+
+
       const subcatsdata = await getDocumentsOrder(
         "subcats",
         orderBy("timeStamp", "asc"),
@@ -31,7 +42,7 @@ const AddProductPage = ({}) => {
 
       setProducts(productsdata);
       setsubCats(subcatsdata);
-      setSubCategory(subcategorydata);
+      setCats(categorydata);
       setPageLoading(false);
     };
     getData();
