@@ -74,7 +74,7 @@ const router = useRouter()
             <Image
               className="absolute"
               src={
-                "https://images.unsplash.com/photo-1605885795793-097ffaee6b7c?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1548&q=80"
+                "/hak.jpg"
               }
               alt="Hakkımızda"
               layout="fill"

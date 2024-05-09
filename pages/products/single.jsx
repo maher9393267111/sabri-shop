@@ -121,20 +121,20 @@ if (!product ){
               <div className="top-8 block md:sticky">
 
               <div dir={dir} className="mt-8 gap-3 flex lg:mt-0 lg:flex-shrink-0">
-
+{/* 
 <div className="inline-flex rounded-md shadow">
     
       <p className="inline-flex arabic items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-base font-medium text-black ">
         {product?.price}$
       </p>
     
-  </div>
+  </div> */}
 
   
   <div className="inline-flex rounded-md shadow">
  
       <a
-      href="https://wtspee.com/9055379732131" target="_blank"
+      href="https://wtspee.com/905379732131" target="_blank"
       className="inline-flex arabic items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-base font-medium text-black ">
       {t('whatsapptitle')}
       </a>
@@ -158,8 +158,28 @@ if (!product ){
                     <article dir={dir} className="prose arabic text-xl max-w-none pb-6">
                         { router?.locale === 'ar' ?  product?.descar : router.locale === 'en' ? product?.desc : product?.desctr }
                       {/* <RichText content={chair.content.raw} /> */}
+
+
+                      <div  dir={dir} className="inline-fle rounded-md shado">
+    
+    <p className="inline-flex arabic items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-xl mt-12 font-medium text-black ">
+   { router?.locale === 'ar' ?  "السعر" : router.locale === 'en' ? "Price" : "Fiyat"}:   {product?.price}$
+    </p>
+  
+</div>
+
+
                     </article>
+
+
+
+
+
                   )}
+
+                  
+
+
                   
                 </section>
               </div>

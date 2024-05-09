@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState ,useRef } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { FaChevronDown } from "react-icons/fa";
@@ -37,13 +37,34 @@ const Navbar = () => {
     setIsClinicalDropdownOpen(false);
   };
 
-  const [menu, setMenu] = useState(false);
-  const [dropdownOpen, setDropdownOpen] = useState(false);
+  // const [menu, setMenu] = useState(false);
+  // const [dropdownOpen, setDropdownOpen] = useState(false);
 
-  const dropdownToggler = (e) => {
-    let menu = e.target.nextElementSibling;
-    menu.classList.toggle("hidden");
-  };
+  // const dropdownToggler = (e) => {
+  //   let menu = e.target.nextElementSibling;
+  //   menu.classList.toggle("hidden");
+  // };
+  const navbarRef = useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (navbarRef.current && !navbarRef.current.contains(event.target)) {
+        setIsMenuOpen(false);
+      }
+    };
+
+    document.addEventListener('mousedown', handleClickOutside);
+
+    return () => {
+      document.removeEventListener('mousedown', handleClickOutside);
+    };
+  }, []);
+
+  
+
+
+
+
 
   const { pageLoading, setPageLoading } = useAuth();
 
@@ -156,6 +177,7 @@ const Navbar = () => {
       {/* --end header */}
 
       <nav
+      ref={navbarRef}
         dir=""
         className="   bg-black bg-yelow-100 px-3 arabic py-5 bg-opacity-80 md:bg-opacity-80 sticky top-0 z-50   text-black md:bg-primar font-primary mx-0 mt-0  bg-no-repeat bg-top md:bg-cover md:bg-top"
       >
