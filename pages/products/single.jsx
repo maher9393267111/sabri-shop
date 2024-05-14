@@ -164,9 +164,9 @@ if (!product ){
     
     <p className="inline-flex arabi gap-3 items-center  justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-xl mt-12 font-medium text-black ">
    { router?.locale === 'ar' ?  "السعر" : router.locale === 'en' ? "Price" : "Fiyat"}:
-     <span className="line-through">{product?.price}TL </span> 
+     <span className="line-through">{product?.price} <span className="  font-serif">₺</span> </span> 
 
-    {product?.isoffer  && <span className="">{calculateDiscountedPrice(product?.price ,product?.discount)}TL</span> }
+    {product?.isoffer  && <span className="">{calculateDiscountedPrice(product?.price ,product?.discount)} <span className="  font-serif">₺</span></span> }
     </p>
   
 </div>
