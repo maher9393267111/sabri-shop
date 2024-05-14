@@ -37,13 +37,13 @@ const titlelng  = router.locale === 'ar' ? titlear : router.locale === 'en' ? ti
 
           <div className="space-x-2 !w-full text-center">
             <span className="text-lg md:text-xl font-semibold line-through text-white ">
-              ${price}
+            ₺{price}
             </span>
 
            
 
             <span className="text-lg font-bold text-gray-900 ">
-              ${calculateDiscountedPrice(price ,discount)}
+            ₺{calculateDiscountedPrice(price ,discount)}
             </span>
 
            
@@ -52,7 +52,7 @@ const titlelng  = router.locale === 'ar' ? titlear : router.locale === 'en' ? ti
           :  <div className="text-center !w-full">
 
           <span className="text-lg md:text-xl text-center font-semibold  text-white ">
-          ${price}
+          ₺{price}
         </span>
         </div> 
 }

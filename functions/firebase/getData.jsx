@@ -51,7 +51,7 @@ function postToJSON(doc) {
 
 export const calculateDiscountedPrice = (price ,discount) => {
   const discountedPrice = price - (price * discount) / 100;
-  return discountedPrice.toFixed(2); // Rounded to 2 decimal places
+  return discountedPrice.toFixed(0); // Rounded to 2 decimal places
 };
 
 

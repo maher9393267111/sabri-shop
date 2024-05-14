@@ -11,7 +11,7 @@ import { useAuth } from "@/functions/context";
 import Loader from "@/components/common/Loader";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "react-i18next";
-
+import { calculateDiscountedPrice } from "@/functions/firebase/getData";
 const NFT = ({}) => {
 
 
@@ -162,8 +162,11 @@ if (!product ){
 
                       <div  dir={dir} className="inline-fle rounded-md shado">
     
-    <p className="inline-flex arabic items-center justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-xl mt-12 font-medium text-black ">
-   { router?.locale === 'ar' ?  "السعر" : router.locale === 'en' ? "Price" : "Fiyat"}:   {product?.price}$
+    <p className="inline-flex arabi gap-3 items-center  justify-center rounded-md border border-transparent bg-primary px-5 py-3 text-xl mt-12 font-medium text-black ">
+   { router?.locale === 'ar' ?  "السعر" : router.locale === 'en' ? "Price" : "Fiyat"}:
+     <span className="line-through">{product?.price}TL </span> 
+
+    {product?.isoffer  && <span className="">{calculateDiscountedPrice(product?.price ,product?.discount)}TL</span> }
     </p>
   
 </div>
