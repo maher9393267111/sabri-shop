@@ -66,8 +66,8 @@ const ProductForm = ({
           }
           initialValues={{
             title: initialValues?.title || "",
-            titlear: initialValues?.title || "",
-            titletr: initialValues?.title || "",
+            titlear: initialValues?.titlear || "",
+            titletr: initialValues?.titleen || "",
             category: initialValues?.category || "",
             subcategory: initialValues?.subcategory || "",
             price: initialValues?.price || 0,
