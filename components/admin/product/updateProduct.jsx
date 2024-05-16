@@ -11,12 +11,13 @@ import { db } from "@/functions/firebase";
 import AdminLayout from "../AdminLayout";
 
 
-import { uploadImages, deleteImages } from "@/functions/firebase/getData";
+import { uploadImages, deleteImages ,deleteImage } from "@/functions/firebase/getData";
 const UpdateProductMain = ({ product, cats, subcats }) => {
   const { query, replace } = useRouter();
   const { id } = query;
   //const [product, setProduct] = useState(null);
   const [files, setFiles] = useState([]);
+  const [file, setFile] = useState("");
 
 
   const isupdate = true;
@@ -26,13 +27,61 @@ const UpdateProductMain = ({ product, cats, subcats }) => {
   const initialValues = product;
 
 
-  console.log("?????-?????-" + initialValues);
+ 
 
 
   const onFinish = async (values) => {
     try {
+
+
+      console.log("?????-?????-" + values ,"file" , file ,"init" ,initialValues?.image);
+
+
       setPageLoading(true);
 
+      if (!file && !values?.image) {
+        message.error("Please select main image");
+        
+        return; // stoppppp progress the function
+      } 
+
+
+      else if(file && values?.image){
+
+        if (initialValues?.image){
+        await deleteImage(initialValues?.image);
+
+        }
+
+        message.info("image deleted");
+        values.image = await uploadImages(file, true, "product");
+        message.success("image Uploaded Sucessfully file true init true");
+
+    }
+
+
+
+    else if(file && !values?.image){
+      values.image = await uploadImages(file, true, "product");
+
+      
+      if (initialValues?.image){
+        await deleteImage(initialValues?.image);
+
+        }
+
+      
+
+
+      message.success("image Uploaded Sucessfully NOT init  file true");
+
+  }
+
+
+
+  if (file || values?.image){
+
+    console.log("INITI IMAGE --->" , values?.image)
 
       // delete images
       const imagesToDelete = product.images.filter(
@@ -45,6 +94,10 @@ const UpdateProductMain = ({ product, cats, subcats }) => {
 
 
       message.success("Product Updated Successfully");
+
+    }
+
+
       // router.push("/admin?tab=1");
     } catch (error) {
       message.error(error.message);
@@ -65,6 +118,7 @@ const UpdateProductMain = ({ product, cats, subcats }) => {
           setFiles,
           isupdate,
           onFinish,
+          file ,setFile
         }}
       />
     </AdminLayout>

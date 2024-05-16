@@ -12,6 +12,7 @@ import AdminLayout from "../AdminLayout";
 
 const AddProductMain = ({ cats, subcats, products }) => {
   const [files, setFiles] = useState([]);
+  const [file, setFile] = useState("");
   
   
   const { setPageLoading, pageLoading } = useAuth();
@@ -20,10 +21,21 @@ const AddProductMain = ({ cats, subcats, products }) => {
 
   const onFinish = async (values) => {
     console.log("values-->", values);
-    
+  
+    if (!file) {
+      message.error("Please select main image");
+      return; // stoppppp progress the function
+    } 
+
+
+
+//Single Main image Upload
+
+    values.image = await uploadImages(file, true, "product");
 
 
     /////urls [array of images]
+
     values.images = await uploadImages(files);
     
 
@@ -31,7 +43,10 @@ const AddProductMain = ({ cats, subcats, products }) => {
     values.timeStamp = serverTimestamp()
 
 
+    
     await addDoc(collection(db, "products"), values);
+
+
 
 
     message.success(`Product Uploaded Successfully`);
@@ -40,7 +55,7 @@ const AddProductMain = ({ cats, subcats, products }) => {
 
   return (
     <AdminLayout>
-      <ProductForm {...{ cats, subcats, onFinish, files, setFiles }} />
+      <ProductForm {...{ cats, subcats, onFinish, files, setFiles , file ,setFile }} />
     </AdminLayout>
   );
 };

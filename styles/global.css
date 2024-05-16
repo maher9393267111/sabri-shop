@@ -360,3 +360,9 @@ body {
   opacity: 0.4;
   background-color: #302d2d;
 }
+
+
+.ant-image{
+
+  width: 100% !important;
+}

@@ -22,11 +22,16 @@ const ProductForm = ({
   initialValues,
   files,
   setFiles,
+  file ,
+  setFile,
   cats,
   subcats,
   isupdate = false,
 }) => {
   const [images, setImages] = useState(initialValues?.images || []);
+  const [image, setImage] = useState(initialValues?.image || "");
+
+  console.log("VALUE____--->>" ,initialValues)
 
   const [offerToggle, setOfferToggle] = useState(
     initialValues?.isoffer || false
@@ -62,6 +67,7 @@ const ProductForm = ({
             onFinish({
               ...values,
               images,
+              image
             })
           }
           initialValues={{
@@ -76,6 +82,7 @@ const ProductForm = ({
             desctr: initialValues?.desctr || "",
             instock: initialValues?.instock || true,
             images: initialValues?.images || [],
+          //  image:initialValues?.image   || "" ,
             video: initialValues?.video || "",
             isoffer: initialValues?.isoffer || false,
             discount: initialValues?.discount || 0,
@@ -185,6 +192,49 @@ const ProductForm = ({
               </Form.Item>
             </div>
           ) : null}
+
+
+{/* UPLOAD MAIN IMAGE */}
+       {/* -----images upload----- */}
+
+       <div>
+            <Upload
+              accept="image/*"
+              maxCount={1}
+              // file is data of image will be uploaded to firebase/storage
+              beforeUpload={(file) => {
+                setFile(file);
+                // setFiles((prev) => [...prev, file]);
+                return false;
+              }}
+              listType="picture-card"
+              onRemove={() => setFile("")}
+            >
+              Upload MainImage
+            </Upload>
+          </div>
+
+          {/* -----show category image {update category} ---- */}
+
+
+
+
+          {image && (
+            <div className="  w-24 md:w-24 relative">
+              <img className=" w-24 h-24  rounded-lg" src={image} alt="" />
+
+              <p
+                onClick={() => setImage("")}
+                className="  !text-red-500 cursor-pointer  font-semibold text-center"
+              >
+                Remove
+              </p>
+            </div>
+          )}
+
+
+
+
 
           {/* -----images upload----- */}
 

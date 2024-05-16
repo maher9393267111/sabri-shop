@@ -38,7 +38,7 @@ export default function Index({}) {
   //  console.log("links", aboutus);
 
   const [cats, setCats] = useState([]);
-  const [products, setProducts] = useState([]);
+  // const [products, setProducts] = useState([]);
   const [offers, setOffers] = useState([]);
   const [news, setNews] = useState([]);
   const [sliders, setSliders] = useState([]);
@@ -59,19 +59,19 @@ export default function Index({}) {
       // setPageLoading(false)
     };
 
-    const getProducts = async () => {
-      //  setPageLoading(true)
+    // const getProducts = async () => {
+    //   //  setPageLoading(true)
 
-      const data = await getDocumentsOrder(
-        "products",
-        orderBy("timeStamp", "asc"),
-        null
-      );
+    //   const data = await getDocumentsOrder(
+    //     "products",
+    //     orderBy("timeStamp", "asc"),
+    //     null
+    //   );
 
-      console.log(data, "fetch PRODUCCCCCCCCCCCC====>>>>");
-      setProducts(data);
-      // setPageLoading(false)
-    };
+    //   console.log(data, "fetch PRODUCCCCCCCCCCCC====>>>>");
+    //   setProducts(data);
+    //   // setPageLoading(false)
+    // };
 
     const getOffers = async () => {
       //  setPageLoading(true)
@@ -90,10 +90,10 @@ export default function Index({}) {
     const getFeatures = async () => {
       // setLoading(true);
 
-      setProducts([]);
+      //setProducts([]);
       const data = await getDocumentsOrder(
         "products",
-        orderBy("timeStamp", "asc"),
+        orderBy("timeStamp", "desc"),
         null,
         2
       );
@@ -120,7 +120,7 @@ export default function Index({}) {
     getFeatures();
 
     getCats();
-    getProducts();
+  //  getProducts();
     getOffers();
   }, []);
 
