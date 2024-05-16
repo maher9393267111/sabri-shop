@@ -3,7 +3,7 @@ import Link from "next/link";
 import { calculateDiscountedPrice } from "@/functions/firebase/getData";
 import { useRouter } from "next/router";
 
-export default function ProductCard({ title, images ,id,imageAlt ,price ,isoffer ,discount ,titlear ,titletr  }) {
+export default function ProductCard({ title, images ,image ,id,imageAlt ,price ,isoffer ,discount ,titlear ,titletr  }) {
 const router =useRouter()
 
 const titlelng  = router.locale === 'ar' ? titlear : router.locale === 'en' ? title : titletr
@@ -15,7 +15,7 @@ const titlelng  = router.locale === 'ar' ? titlear : router.locale === 'en' ? ti
         <div className="aspect-w-1 aspect-h-1 xl:aspect-w-7 xl:aspect-h-8 w-full overflow-hidden rounded-lg bg-gray-200 ">
           <Image
             className="bg-grad   !h-[288px]  md:!h-[325px]"
-            src={images[0]}
+            src={image}
             alt={title}
             layout="responsive"
             width={600}
