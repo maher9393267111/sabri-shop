@@ -98,7 +98,7 @@ const ProductTable = ({ products }) => {
               width={50}
               height={50}
               className="  relative  w-24 h-24 object-cover object-center rounded-full"
-              src={record.images[0]}
+              src={record.image}
               alt=""
             />
 
